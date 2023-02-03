@@ -6,12 +6,78 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
   vim.cmd [[packadd packer.nvim]]
 end
--- GIT INTEGRATIONS
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
+
+
+-- NVIM TREE INTEGRATIONS
+local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+if not config_status_ok then
   return
 end
 
+local tree_cb = nvim_tree_config.nvim_tree_callback
+
+require('nvim-tree').setup {
+  open_on_setup = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
+  renderer = {
+    root_folder_modifier = ":t",
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          arrow_open = "",
+          arrow_closed = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+    },
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  view = {
+    width = 25,
+    side = "left",
+    mappings = {
+      list = {
+        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = "h", cb = tree_cb "close_node" },
+        { key = "v", cb = tree_cb "vsplit" },
+      },
+    },
+  },
+}
+
+vim.cmd [[
+  nnoremap <space>f :NvimTreeToggle<CR>
+]]
+
+-- GIT INTEGRATIONS
 require('gitsigns').setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -196,11 +262,6 @@ require('packer').startup(function(use)
     end,
   }
 
-  use { -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
-
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -208,6 +269,12 @@ require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
+
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
