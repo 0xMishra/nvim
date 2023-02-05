@@ -16,7 +16,8 @@ vim.notify = function(msg, log_level, _opts)
   end
 end
 
-vim.cmd[[
+vim.cmd [[
+  nnoremap <S-w> :bdelete<CR>
   nnoremap <space>t :Telescope keymaps<CR>  
 ]]
 
@@ -24,6 +25,7 @@ vim.cmd[[
 vim.cmd [[
   nnoremap <silent><TAB> :BufferLineCycleNext<CR>
   nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+  nnoremap <del> :bufdo bd <CR>
 ]]
 
 
@@ -35,13 +37,12 @@ end
 
 require('bufferline').setup {
   options = {
-    numbers = "buffer_id", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     -- close_command = "Belete! %d", -- can be a string | function, see "Mouse actions"
     -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
     -- left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
     -- middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-    indicator_icon = nil,
-    indicator = { style = "icon", icon = "▎▎" },
+    indicator = { style = "icon", icon = " " },
     buffer_close_icon = "",
     -- buffer_close_icon = '',
     modified_icon = "●",
@@ -51,7 +52,7 @@ require('bufferline').setup {
     right_trunc_marker = "",
     max_name_length = 30,
     max_prefix_length = 30,
-    tab_size = 21,
+    tab_size = 20,
     diagnostics = false,
     diagnostics_update_in_insert = false,
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
@@ -142,7 +143,7 @@ require('gitsigns').setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    delete = { hl = "GitSignsDelete", text =   "契",numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
@@ -498,7 +499,7 @@ comment.setup {
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
-  char = '┊',
+  char = "┊",
   show_trailing_blankline_indent = false,
 }
 
@@ -744,4 +745,7 @@ cmp.setup {
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
 -- vim: ts=2 sts=2 sw=2 et
