@@ -16,6 +16,25 @@ vim.notify = function(msg, log_level, _opts)
   end
 end
 
+-- Require and call setup function somewhere in your init.lua
+require('image').setup {
+  render = {
+    min_padding = 5,
+    show_label = true,
+    use_dither = true,
+    foreground_color = false,
+    background_color = false
+  },
+  events = {
+    update_on_nvim_resize = true,
+  },
+}
+
+-- SHORTCUT FOR OPENNING THIS CONFIG FILE
+vim.cmd [[
+  nnoremap <space>c :tabedit ~/.config/nvim/init.lua<CR>
+]]
+
 -- AUTOPAIRS INTEGRATIONS
 local status_ok, npairs = pcall(require, "nvim-autopairs")
 if not status_ok then
@@ -318,10 +337,19 @@ require('packer').startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
+  use { 'm00qek/baleia.nvim', tag = 'v1.2.0' }
+  use 'folke/tokyonight.nvim'
   use "lukas-reineke/lsp-format.nvim"
   use {
     "windwp/nvim-autopairs",
   }
+  use {
+    'samodostal/image.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
+  use { "ellisonleao/gruvbox.nvim" }
 
   use {
     'lewis6991/gitsigns.nvim',
