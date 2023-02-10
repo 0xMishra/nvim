@@ -6,285 +6,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
   vim.cmd [[packadd packer.nvim]]
 end
-
-vim.notify = function(msg, log_level, _opts)
-  if msg:match("exit code") then return end
-  if log_level == vim.log.levels.ERROR then
-    vim.api.nvim_err_writeln(msg)
-  else
-    vim.api.nvim_echo({ { msg } }, true, {})
-  end
-end
-
--- IMAGE ASCII PREVIEW
-require('image').setup {
-    render = {
-        min_padding = 5,
-        show_label = true,
-        use_dither = true,
-        foreground_color = false,
-        background_color = false
-    },
-    events = {
-        update_on_nvim_resize = true,
-    },
-}
-
--- SHORTCUT FOR OPENNING THIS CONFIG FILE
-vim.cmd [[
-  nnoremap <space>c :tabedit ~/.config/nvim/init.lua<CR>
-]]
-
--- SHORTCUT FOR SETTING NONUMBER
-vim.cmd [[
-  nnoremap <space>n :setlocal nonumber<CR>
-]]
-
--- TERMINAL SHORTCUT
-vim.cmd [[
-  nnoremap <space>t :term<CR>
-]]
-
--- AUTOPAIRS INTEGRATIONS
-local status_ok, npairs = pcall(require, "nvim-autopairs")
-if not status_ok then
-  return
-end
-
-npairs.setup {
-    check_ts = true,
-    ts_config = {
-        lua = { "string", "source" },
-        javascript = { "string", "template_string" },
-        java = false,
-    },
-    disable_filetype = { "TelescopePrompt", "spectre_panel" },
-    fast_wrap = {
-        map = "<M-e>",
-        chars = { "{", "[", "(", '"', "'" },
-        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
-        offset = 0, -- Offset from pattern match
-        end_key = "$",
-        keys = "qwertyuiopzxcvbnmasdfghjkl",
-        check_comma = true,
-        highlight = "PmenuSel",
-        highlight_grey = "LineNr",
-    },
-}
-
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
-
-
-vim.cmd [[
-  nnoremap <S-w> :bdelete<CR>
-  nnoremap <space>k :Telescope keymaps<CR>
-]]
-
--- BUFFERLINE INTEGRATIONS
-vim.cmd [[
-  nnoremap <silent><TAB> :BufferLineCycleNext<CR>
-  nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-  nnoremap <del> :bufdo bd <CR>
-]]
-
-
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-  return
-end
-
-
-require('bufferline').setup {
-    options = {
-        numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        -- close_command = "Belete! %d", -- can be a string | function, see "Mouse actions"
-        -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-        -- left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-        -- middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-        indicator = { style = "icon", icon = " " },
-        buffer_close_icon = "",
-        -- buffer_close_icon = '',
-        modified_icon = "●",
-        close_icon = "",
-        -- close_icon = '',
-        left_trunc_marker = "",
-        right_trunc_marker = "",
-        max_name_length = 30,
-        max_prefix_length = 30,
-        tab_size = 20,
-        diagnostics = false,
-        diagnostics_update_in_insert = false,
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-        show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icon = true,
-        show_tab_indicators = true,
-        persist_buffer_sort = true,
-        separator_style = "thin",
-        enforce_regular_tabs = true,
-        always_show_bufferline = true,
-    },
-}
-
-
-
--- NVIM TREE INTEGRATIONS
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-require('nvim-tree').setup {
-    open_on_setup = true,
-    git = {
-        enable = true,
-        ignore = false,
-        timeout = 500,
-    },
-    update_focused_file = {
-        enable = true,
-        update_cwd = true,
-    },
-    filters = {
-        dotfiles = false,
-    },
-    renderer = {
-        root_folder_modifier = ":t",
-        icons = {
-            glyphs = {
-                default = "",
-                symlink = "",
-                folder = {
-                    arrow_open = "",
-                    arrow_closed = "",
-                    default = "",
-                    open = "",
-                    empty = "",
-                    empty_open = "",
-                    symlink = "",
-                    symlink_open = "",
-                },
-                git = {
-                    unstaged = "",
-                    staged = "S",
-                    unmerged = "",
-                    renamed = "➜",
-                    untracked = "U",
-                    deleted = "",
-                    ignored = "◌",
-                },
-            },
-        },
-    },
-    diagnostics = {
-        enable = true,
-        show_on_dirs = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        },
-    },
-    view = {
-        width = 25,
-        side = "left",
-        mappings = {
-            list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-                { key = "h",                  cb = tree_cb "close_node" },
-                { key = "v",                  cb = tree_cb "vsplit" },
-            },
-        },
-    },
-}
-
-vim.cmd [[
-  nnoremap <space>f :NvimTreeToggle<CR>
-]]
-
--- GIT INTEGRATIONS
-require('gitsigns').setup {
-    signs = {
-        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    },
-    signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-    linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-    word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-    watch_gitdir = {
-        interval = 1000,
-        follow_files = true,
-    },
-    attach_to_untracked = true,
-    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-    current_line_blame_opts = {
-        virt_text = true,
-        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
-        ignore_whitespace = false,
-    },
-    current_line_blame_formatter_opts = {
-        relative_time = false,
-    },
-    sign_priority = 6,
-    update_debounce = 100,
-    status_formatter = nil, -- Use default
-    max_file_length = 40000,
-    preview_config = {
-        -- Options passed to nvim_open_win
-        border = "single",
-        style = "minimal",
-        relative = "cursor",
-        row = 0,
-        col = 1,
-    },
-    yadm = {
-        enable = false,
-    },
-}
-
--- FORMAT ON SAVE
-require("lsp-format").setup {
-    html = { { cmd = { "prettier -W" } } },
-    css = { { cmd = { "prettier -W" } } },
-    json = { { cmd = { "prettier -W" } } },
-    yaml = { { cmd = { "prettier -W" } } },
-    solidity = { { cmd = { "prettier -W" } } },
-    lua = { { cmd = {
-        function()
-          return string.format(
-                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
-        end
-    } } },
-    rust = { { cmd = { "prettier -W" } } },
-    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
-}
-
-vim.cmd('autocmd BufWritePost * Format')
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
-
 
 -- PACKAGE MANAGER INTEGRATIONS
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
+  use 'windwp/nvim-ts-autotag'
   use 'simrat39/rust-tools.nvim'
   use { 'm00qek/baleia.nvim', tag = 'v1.2.0' }
   use 'folke/tokyonight.nvim'
@@ -304,7 +34,6 @@ require('packer').startup(function(use)
       'lewis6991/gitsigns.nvim',
       -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
-  use "jose-elias-alvarez/null-ls.nvim"
   -- using packer.nvim
   use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
@@ -434,7 +163,14 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+require("gruvbox").setup({
+    italic = false,
+    transparent_mode = true,
+    undercurl = false,
+    underline = false,
+    contrast = "hard"
+})
+vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -470,7 +206,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
     },
@@ -567,9 +303,6 @@ require('nvim-treesitter.configs').setup {
             scope_incremental = '<c-s>',
             node_decremental = '<c-backspace>',
         },
-    },
-    autotag = {
-        enable = true
     },
     textobjects = {
         select = {
@@ -760,6 +493,304 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
+
+
+
+
+vim.notify = function(msg, log_level, _opts)
+  if msg:match("exit code") then return end
+  if log_level == vim.log.levels.ERROR then
+    vim.api.nvim_err_writeln(msg)
+  else
+    vim.api.nvim_echo({ { msg } }, true, {})
+  end
+end
+
+-- AUTOTAG INTEGRATIONS
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        {
+            underline = true,
+            virtual_text = {
+                spacing = 5,
+                severity_limit = 'Warning',
+            },
+            update_in_insert = true,
+        }
+    )
+
+
+
+require('nvim-ts-autotag').setup({
+    filetypes = {
+        'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+        'xml',
+        'php',
+        'markdown',
+        'glimmer', 'handlebars', 'hbs'
+    }
+})
+
+-- IMAGE ASCII PREVIEW
+require('image').setup {
+    render = {
+        min_padding = 5,
+        show_label = true,
+        use_dither = true,
+        foreground_color = false,
+        background_color = false
+    },
+    events = {
+        update_on_nvim_resize = true,
+    },
+}
+
+-- SHORTCUT FOR OPENNING THIS CONFIG FILE
+vim.cmd [[
+  nnoremap <space>c :tabedit ~/.config/nvim/init.lua<CR>
+]]
+
+-- SHORTCUT FOR SETTING NONUMBER
+vim.cmd [[
+  nnoremap <space>n :setlocal nonumber<CR>
+]]
+
+-- TERMINAL SHORTCUT
+vim.cmd [[
+  nnoremap <space>t :term<CR>
+]]
+
+-- AUTOPAIRS INTEGRATIONS
+local status_ok, npairs = pcall(require, "nvim-autopairs")
+if not status_ok then
+  return
+end
+
+npairs.setup {
+    check_ts = true,
+    ts_config = {
+        lua = { "string", "source" },
+        javascript = { "string", "template_string" },
+        java = false,
+    },
+    disable_filetype = { "TelescopePrompt", "spectre_panel" },
+    fast_wrap = {
+        map = "<M-e>",
+        chars = { "{", "[", "(", '"', "'" },
+        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+        offset = 0, -- Offset from pattern match
+        end_key = "$",
+        keys = "qwertyuiopzxcvbnmasdfghjkl",
+        check_comma = true,
+        highlight = "PmenuSel",
+        highlight_grey = "LineNr",
+    },
+}
+
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+
+
+vim.cmd [[
+  nnoremap <S-w> :bdelete<CR>
+  nnoremap <space>k :Telescope keymaps<CR>
+]]
+
+-- BUFFERLINE INTEGRATIONS
+vim.cmd [[
+  nnoremap <silent><TAB> :BufferLineCycleNext<CR>
+  nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+  nnoremap <del> :bufdo bd <CR>
+]]
+
+
+local status_ok, bufferline = pcall(require, "bufferline")
+if not status_ok then
+  return
+end
+
+
+require('bufferline').setup {
+    options = {
+        numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+        -- close_command = "Belete! %d", -- can be a string | function, see "Mouse actions"
+        -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+        -- left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+        -- middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+        indicator = { style = "icon", icon = " " },
+        buffer_close_icon = "",
+        -- buffer_close_icon = '',
+        modified_icon = "●",
+        close_icon = "",
+        -- close_icon = '',
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        max_name_length = 30,
+        max_prefix_length = 30,
+        tab_size = 20,
+        diagnostics = false,
+        diagnostics_update_in_insert = false,
+        -- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        show_buffer_icons = true,
+        show_buffer_close_icons = true,
+        show_close_icon = true,
+        show_tab_indicators = true,
+        persist_buffer_sort = true,
+        separator_style = "thin",
+        enforce_regular_tabs = true,
+        always_show_bufferline = true,
+    },
+}
+
+
+
+-- NVIM TREE INTEGRATIONS
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+-- if not config_status_ok then
+--   return
+-- end
+--
+-- local tree_cb = nvim_tree_config.nvim_tree_callback
+--
+-- require('nvim-tree').setup {
+--     open_on_setup = true,
+--     git = {
+--         enable = true,
+--         ignore = false,
+--         timeout = 500,
+--     },
+--     update_focused_file = {
+--         enable = true,
+--         update_cwd = true,
+--     },
+--     filters = {
+--         dotfiles = false,
+--     },
+--     renderer = {
+--         root_folder_modifier = ":t",
+--         icons = {
+--             glyphs = {
+--                 default = "",
+--                 symlink = "",
+--                 folder = {
+--                     arrow_open = "",
+--                     arrow_closed = "",
+--                     default = "",
+--                     open = "",
+--                     empty = "",
+--                     empty_open = "",
+--                     symlink = "",
+--                     symlink_open = "",
+--                 },
+--                 git = {
+--                     unstaged = "",
+--                     staged = "S",
+--                     unmerged = "",
+--                     renamed = "➜",
+--                     untracked = "U",
+--                     deleted = "",
+--                     ignored = "◌",
+--                 },
+--             },
+--         },
+--     },
+--     diagnostics = {
+--         enable = true,
+--         show_on_dirs = true,
+--         icons = {
+--             hint = "",
+--             info = "",
+--             warning = "",
+--             error = "",
+--         },
+--     },
+--     view = {
+--         width = 25,
+--         side = "left",
+--         mappings = {
+--             list = {
+--                 { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+--                 { key = "h",                  cb = tree_cb "close_node" },
+--                 { key = "v",                  cb = tree_cb "vsplit" },
+--             },
+--         },
+--     },
+-- }
+--
+-- vim.cmd [[
+--   nnoremap <space>f :NvimTreeToggle<CR>
+-- ]]
+
+-- GIT INTEGRATIONS
+require('gitsigns').setup {
+    signs = {
+        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    },
+    signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    watch_gitdir = {
+        interval = 1000,
+        follow_files = true,
+    },
+    attach_to_untracked = true,
+    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+        delay = 1000,
+        ignore_whitespace = false,
+    },
+    current_line_blame_formatter_opts = {
+        relative_time = false,
+    },
+    sign_priority = 6,
+    update_debounce = 100,
+    status_formatter = nil, -- Use default
+    max_file_length = 40000,
+    preview_config = {
+        -- Options passed to nvim_open_win
+        border = "single",
+        style = "minimal",
+        relative = "cursor",
+        row = 0,
+        col = 1,
+    },
+    yadm = {
+        enable = false,
+    },
+}
+
+-- FORMAT ON SAVE
+require("lsp-format").setup {
+    html = { { cmd = { "prettier -W" } } },
+    css = { { cmd = { "prettier -W" } } },
+    json = { { cmd = { "prettier -W" } } },
+    yaml = { { cmd = { "prettier -W" } } },
+    solidity = { { cmd = { "prettier -W" } } },
+    lua = { { cmd = {
+        function()
+          return string.format(
+                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
+        end
+    } } },
+    rust = { { cmd = { "prettier -W" } } },
+    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
+}
+
+vim.cmd('autocmd BufWritePost * Format')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
