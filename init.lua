@@ -794,6 +794,19 @@ require('gitsigns').setup {
     },
 }
 
+-- HARPOON INTEGRATIONS
+require("telescope").load_extension('harpoon')
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<space>m", mark.add_file)
+vim.keymap.set("n", "<space>h", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<space>1", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<space>2", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<space>3", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<space>4", function() ui.nav_file(4) end)
+vim.keymap.set("n", "<space>5", function() ui.nav_file(5) end)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
