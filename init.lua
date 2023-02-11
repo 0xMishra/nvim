@@ -6,9 +6,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
   vim.cmd [[packadd packer.nvim]]
 end
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
+
 
 -- PACKAGE MANAGER INTEGRATIONS
 require('packer').startup(function(use)
@@ -22,6 +20,7 @@ require('packer').startup(function(use)
   use {
       "windwp/nvim-autopairs",
   }
+  use 'ThePrimeagen/harpoon'
   use {
       'samodostal/image.nvim',
       requires = {
@@ -133,7 +132,10 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-
+-- set tab size
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -142,7 +144,7 @@ vim.o.hlsearch = false
 vim.o.clipboard = "unnamedplus"
 
 -- Make line numbers default
-vim.o.number = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -165,10 +167,8 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 require("gruvbox").setup({
     italic = false,
+    contrast = "hard",
     transparent_mode = true,
-    undercurl = false,
-    underline = false,
-    contrast = "hard"
 })
 vim.cmd [[colorscheme gruvbox]]
 
@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
--- Set lualine as statusline
+-- LUALINE INTEGRATIONS
 -- See `:help lualine.txt`
 require('lualine').setup {
     options = {
@@ -212,7 +212,30 @@ require('lualine').setup {
     },
 }
 
--- Enable Comment.nvim
+
+-- FORMAT ON SAVE
+require("lsp-format").setup {
+    html = { { cmd = { "prettier -W" } } },
+    css = { { cmd = { "prettier -W" } } },
+    json = { { cmd = { "prettier -W" } } },
+    yaml = { { cmd = { "prettier -W" } } },
+    solidity = { { cmd = { "prettier -W" } } },
+    lua = { { cmd = {
+        function()
+          return string.format(
+                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
+        end
+    } } },
+    rust = { { cmd = { "prettier -W" } } },
+    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
+}
+
+vim.cmd('autocmd BufWritePost * Format')
+
+-- COMMENT INTEGRATIONS
 local status_ok, comment = pcall(require, "Comment")
 if not status_ok then
   return
@@ -552,7 +575,7 @@ vim.cmd [[
 
 -- SHORTCUT FOR SETTING NONUMBER
 vim.cmd [[
-  nnoremap <space>n :setlocal nonumber<CR>
+  nnoremap <space>n :setlocal norelativenumber<CR>
 ]]
 
 -- TERMINAL SHORTCUT
@@ -602,49 +625,50 @@ vim.cmd [[
 
 -- BUFFERLINE INTEGRATIONS
 vim.cmd [[
-  nnoremap <silent><TAB> :BufferLineCycleNext<CR>
-  nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+  nnoremap <silent><TAB> :bnext<CR>
+  nnoremap <silent><space>f :b1<CR>
+  nnoremap <silent><S-TAB> :bprevious<CR>
   nnoremap <del> :bufdo bd <CR>
 ]]
-
-
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-  return
-end
-
-
-require('bufferline').setup {
-    options = {
-        numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        -- close_command = "Belete! %d", -- can be a string | function, see "Mouse actions"
-        -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-        -- left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-        -- middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-        indicator = { style = "icon", icon = " " },
-        buffer_close_icon = "",
-        -- buffer_close_icon = '',
-        modified_icon = "●",
-        close_icon = "",
-        -- close_icon = '',
-        left_trunc_marker = "",
-        right_trunc_marker = "",
-        max_name_length = 30,
-        max_prefix_length = 30,
-        tab_size = 20,
-        diagnostics = false,
-        diagnostics_update_in_insert = false,
-        -- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-        show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icon = true,
-        show_tab_indicators = true,
-        persist_buffer_sort = true,
-        separator_style = "thin",
-        enforce_regular_tabs = true,
-        always_show_bufferline = true,
-    },
-}
+--
+--
+-- local status_ok, bufferline = pcall(require, "bufferline")
+-- if not status_ok then
+--   return
+-- end
+--
+--
+-- require('bufferline').setup {
+--     options = {
+--         numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+--         -- close_command = "Belete! %d", -- can be a string | function, see "Mouse actions"
+--         -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+--         -- left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+--         -- middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+--         indicator = { style = "icon", icon = " " },
+--         buffer_close_icon = "",
+--         -- buffer_close_icon = '',
+--         modified_icon = "●",
+--         close_icon = "",
+--         -- close_icon = '',
+--         left_trunc_marker = "",
+--         right_trunc_marker = "",
+--         max_name_length = 30,
+--         max_prefix_length = 30,
+--         tab_size = 20,
+--         diagnostics = false,
+--         diagnostics_update_in_insert = false,
+--         -- offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+--         show_buffer_icons = true,
+--         show_buffer_close_icons = true,
+--         show_close_icon = true,
+--         show_tab_indicators = true,
+--         persist_buffer_sort = true,
+--         separator_style = "thin",
+--         enforce_regular_tabs = true,
+--         always_show_bufferline = true,
+--     },
+-- }
 
 
 
@@ -770,29 +794,11 @@ require('gitsigns').setup {
     },
 }
 
--- FORMAT ON SAVE
-require("lsp-format").setup {
-    html = { { cmd = { "prettier -W" } } },
-    css = { { cmd = { "prettier -W" } } },
-    json = { { cmd = { "prettier -W" } } },
-    yaml = { { cmd = { "prettier -W" } } },
-    solidity = { { cmd = { "prettier -W" } } },
-    lua = { { cmd = {
-        function()
-          return string.format(
-                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
-        end
-    } } },
-    rust = { { cmd = { "prettier -W" } } },
-    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
-}
-
-vim.cmd('autocmd BufWritePost * Format')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 et
 -- vim: ts=2 sts=2 sw=2 et
 -- vim: ts=2 sts=2 sw=2 et
 -- vim: ts=2 sts=2 sw=2 et
