@@ -7,10 +7,26 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+-- remove carriage return character
+vim.cmd [[
+  nnoremap <space>r :%s/\r/\r/g<CR>
+]]
 
 -- PACKAGE MANAGER INTEGRATIONS
 require('packer').startup(function(use)
   -- Package manager
+
+  -- use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+
+
+  -- use {
+  --     'nvim-tree/nvim-tree.lua',
+  --     requires = {
+  --         'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  --     },
+  --     tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  -- }
+
   use 'wbthomason/packer.nvim'
   use 'windwp/nvim-ts-autotag'
   use 'simrat39/rust-tools.nvim'
@@ -34,7 +50,6 @@ require('packer').startup(function(use)
       -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
   -- using packer.nvim
-  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
 
   -- Debugging
@@ -68,13 +83,6 @@ require('packer').startup(function(use)
       end,
   }
 
-  use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-          'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      },
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
 
   use { -- Additional text objects via treesitter
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -129,6 +137,30 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = vim.fn.expand '$MYVIMRC',
 })
 
+
+-- FORMAT ON SAVE
+require("lsp-format").setup {
+    html = { { cmd = { "prettier -W" } } },
+    css = { { cmd = { "prettier -W" } } },
+    json = { { cmd = { "prettier -W" } } },
+    yaml = { { cmd = { "prettier -W" } } },
+    solidity = { { cmd = { "prettier -W" } } },
+    lua = { { cmd = {
+        function()
+          return string.format(
+                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
+        end
+    } } },
+    rust = { { cmd = { "prettier -W" } } },
+    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
+    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
+}
+
+vim.cmd('autocmd BufWritePost * Format')
+
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
@@ -168,7 +200,6 @@ vim.o.termguicolors = true
 require("gruvbox").setup({
     italic = false,
     contrast = "hard",
-    transparent_mode = true,
 })
 vim.cmd [[colorscheme gruvbox]]
 
@@ -205,7 +236,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
     options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
@@ -213,27 +244,6 @@ require('lualine').setup {
 }
 
 
--- FORMAT ON SAVE
-require("lsp-format").setup {
-    html = { { cmd = { "prettier -W" } } },
-    css = { { cmd = { "prettier -W" } } },
-    json = { { cmd = { "prettier -W" } } },
-    yaml = { { cmd = { "prettier -W" } } },
-    solidity = { { cmd = { "prettier -W" } } },
-    lua = { { cmd = {
-        function()
-          return string.format(
-                  'lua-format i --no-keep-simple-function-one-line --no-spaces-inside-functiondef-parens --break-after-table-lb --no-spaces-inside-functioncall-parens --indent-width=2 %s')
-        end
-    } } },
-    rust = { { cmd = { "prettier -W" } } },
-    javascriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    javascript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescriptreact = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } },
-    typescript = { { cmd = { "prettier -W", "./node_modules/.bin/eslint --fix" } } }
-}
-
-vim.cmd('autocmd BufWritePost * Format')
 
 -- COMMENT INTEGRATIONS
 local status_ok, comment = pcall(require, "Comment")
@@ -272,7 +282,7 @@ comment.setup {
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
-    char = "┊",
+    char = "⏐",
     show_trailing_blankline_indent = false,
 }
 
@@ -578,11 +588,6 @@ vim.cmd [[
   nnoremap <space>n :setlocal norelativenumber<CR>
 ]]
 
--- TERMINAL SHORTCUT
-vim.cmd [[
-  nnoremap <space>t :term<CR>
-]]
-
 -- AUTOPAIRS INTEGRATIONS
 local status_ok, npairs = pcall(require, "nvim-autopairs")
 if not status_ok then
@@ -798,15 +803,23 @@ require('gitsigns').setup {
 require("telescope").load_extension('harpoon')
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
+local term = require("harpoon.term")
 
 vim.keymap.set("n", "<space>m", mark.add_file)
 vim.keymap.set("n", "<space>h", ui.toggle_quick_menu)
+
+-- TERMINAL SHORTCUT
+vim.keymap.set("n", "<space>t", function () term.gotoTerminal(1) end)
 
 vim.keymap.set("n", "<space>1", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<space>2", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<space>3", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<space>4", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<space>5", function() ui.nav_file(5) end)
+vim.keymap.set("n", "<space>6", function() ui.nav_file(6) end)
+vim.keymap.set("n", "<space>7", function() ui.nav_file(7) end)
+vim.keymap.set("n", "<space>8", function() ui.nav_file(8) end)
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
