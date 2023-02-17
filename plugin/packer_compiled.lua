@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/baleia.nvim",
     url = "https://github.com/m00qek/baleia.nvim"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -159,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
+  neomake = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neomake",
+    url = "https://github.com/neomake/neomake"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -179,11 +179,6 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -200,11 +195,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     loaded = true,
