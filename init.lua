@@ -12,6 +12,13 @@ vim.cmd [[
   nnoremap <space>r :%s/\r/\r/g<CR>
 ]]
 
+-- NETRW CONFIG
+vim.cmd [[
+  let g:netrw_winsize = 25
+  let g:netrw_banner = 5
+  let g:netrw_localcopydircmd = 'cp -r'
+  nnoremap <space>f :b1<CR>
+]]
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -29,7 +36,6 @@ require('packer').startup(function(use)
   --     },
   --     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   -- }
-
   use 'wbthomason/packer.nvim'
   use 'simrat39/rust-tools.nvim'
   use { 'm00qek/baleia.nvim', tag = 'v1.2.0' }
@@ -600,7 +606,6 @@ vim.cmd [[
 -- BUFFERLINE INTEGRATIONS
 vim.cmd [[
   nnoremap <silent><TAB> :bnext<CR>
-  nnoremap <silent><space>f :b1<CR>
   nnoremap <silent><S-TAB> :bprevious<CR>
   nnoremap <del> :bufdo bd <CR>
 ]]

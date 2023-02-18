@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
-  neomake = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neomake",
-    url = "https://github.com/neomake/neomake"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -190,16 +185,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
-  },
-  ["nvim-ts-autotag"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
-    url = "https://github.com/windwp/nvim-ts-autotag"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
