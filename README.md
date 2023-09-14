@@ -1,2 +1,3 @@
 # nvim-config
-My configurations for neovim 
+
+My configurations for neovim
