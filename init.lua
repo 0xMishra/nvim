@@ -4,7 +4,6 @@ vim.cmd([[
   autocmd VimEnter * lua require'vim.loader'.enable()
 ]])
 
-require("config.netrw")
 require("config.options")
 require("config.cmd")
 require("config.packer")
