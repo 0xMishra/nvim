@@ -18,12 +18,19 @@ require("packer").startup(function(use)
   use("echasnovski/mini.pairs")
   use("jose-elias-alvarez/null-ls.nvim")
   use("christoomey/vim-tmux-navigator")
-  use("roobert/tailwindcss-colorizer-cmp.nvim")
   use("folke/trouble.nvim")
 
   use({
     "lewis6991/gitsigns.nvim",
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+  })
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
   })
   -- using packer.nvim
 

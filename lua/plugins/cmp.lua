@@ -42,7 +42,3 @@ cmp.setup({
   },
 })
 
--- tailwindcss configuration
-cmp.config.formatting = {
-  format = require("tailwindcss-colorizer-cmp").formatter,
-}

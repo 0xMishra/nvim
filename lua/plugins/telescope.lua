@@ -3,6 +3,7 @@ telescope.setup({
   file_ignore_patterns = { "%.git/." },
   defaults = {
     previewer = false,
+    disable_devicons = true,
     -- hidden = true,
     prompt_prefix = "   ",
     file_ignore_patterns = { "node_modules", "package-lock.json" },
@@ -22,6 +23,7 @@ telescope.setup({
     find_files = {
       theme = "dropdown",
       previewer = false,
+      disable_devicons = true,
       layout_config = {
 
         width = 0.5,
@@ -33,6 +35,7 @@ telescope.setup({
 
     git_files = {
       previewer = false,
+      disable_devicons = true,
       theme = "dropdown",
       layout_config = {
         width = 0.5,
@@ -44,6 +47,7 @@ telescope.setup({
     },
     buffers = {
       previewer = false,
+      disable_devicons = true,
       theme = "dropdown",
       layout_config = {
         width = 0.5,
@@ -55,6 +59,7 @@ telescope.setup({
     },
     live_grep = {
       only_sort_text = true,
+      disable_devicons = true,
       previewer = true,
       layout_config = {
 
@@ -68,6 +73,7 @@ telescope.setup({
     },
     grep_string = {
       only_sort_text = true,
+      disable_devicons = true,
       previewer = true,
       layout_config = {
         horizontal = {
@@ -79,6 +85,7 @@ telescope.setup({
     },
     lsp_references = {
       show_line = false,
+      disable_devicons = true,
       previewer = true,
       layout_config = {
 
@@ -93,6 +100,7 @@ telescope.setup({
     treesitter = {
       show_line = false,
       previewer = true,
+      disable_devicons = true,
       layout_config = {
         horizontal = {
           width = 0.9,

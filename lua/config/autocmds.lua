@@ -65,6 +65,20 @@ api.nvim_create_autocmd(
   { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
+-- Enable spell checking for certain file types
+-- api.nvim_create_autocmd(
+-- 	{ "BufRead", "BufNewFile" },
+-- 	-- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
+-- 	{
+-- 		pattern = { "*.txt", "*.md", "*.tex" },
+
+-- 		callback = function()
+-- 			vim.opt.spell = true
+-- 			vim.opt.spelllang = "en,de"
+-- 		end,
+-- 	}
+-- )
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -80,25 +94,41 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd("highlight NormalFloat guibg=none guifg=none")
     vim.cmd("highlight FloatBorder guifg=" .. colors.fg .. " guibg=none")
     vim.cmd("highlight NormalNC guibg=none guifg=none")
+
+    -- change neotree background colors
+
+    -- Default: NeoTreeNormal  xxx ctermfg=223 ctermbg=232 guifg=#d4be98 guibg=#141617
+
+    vim.cmd("highlight NeoTreeNormal guibg=none")
+    -- vim.cmd('highlight NeoTreeFloatNormal guifg=#1d2021 guibg=#141617')
+
+    vim.cmd("highlight NeoTreeFloatBorder guifg=#958272 guibg=none")
+
+    vim.cmd("highlight NeoTreeEndOfBuffer guibg=none") -- 1d2021
   end,
 })
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
+
   group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
   pattern = {
     "PlenaryTestPopup",
     "help",
     "lspinfo",
+
     "man",
     "notify",
-
     "qf",
     "spectre_panel",
+    "startuptime",
 
     "tsplayground",
 
+    "neotest-output",
     "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -108,3 +138,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- resize neovim split when terminal is resized
 vim.api.nvim_command("autocmd VimResized * wincmd =")
+

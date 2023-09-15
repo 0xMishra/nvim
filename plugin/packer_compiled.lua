@@ -129,10 +129,20 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/mini.pairs",
     url = "https://github.com/echasnovski/mini.pairs"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -143,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/NvChad/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -185,11 +190,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["tailwindcss-colorizer-cmp.nvim"] = {
-    loaded = true,
-    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/tailwindcss-colorizer-cmp.nvim",
-    url = "https://github.com/roobert/tailwindcss-colorizer-cmp.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     cond = { true },

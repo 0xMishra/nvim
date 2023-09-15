@@ -12,7 +12,7 @@ vim.cmd([[
   " NETRW CONFIG
 
   let g:netrw_localcopydircmd = 'cp -r'
-  nnoremap <silent><space>f :Explore<CR>
+  nnoremap <silent><space>f :Neotree<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>c :e ~/.config/nvim/<CR>
@@ -56,7 +56,7 @@ vim.cmd([[
   autocmd TermEnter * call winrestview({'topline': line('$')})
 
   " formatting a buffer
-  " nnoremap <silent>ff :lua vim.lsp.buf.format()<CR>
+  nnoremap <silent>ff :lua vim.lsp.buf.format()<CR>
 
 ]])
 
