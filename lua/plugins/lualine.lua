@@ -1,7 +1,7 @@
 require("lualine").setup({
   options = {
     theme = "auto",
-    icons_enabled = true,
+    icons_enabled = false,
     section_separators = "",
     component_separators = "",
     disabled_filetypes = {
@@ -31,23 +31,13 @@ require("lualine").setup({
   sections = {
     lualine_a = {},
     lualine_c = {
-      -- "filename",
-      {
-        "filetype",
-        icon_only = true,
-        separator = "",
-        padding = {
-          left = 1,
-          right = 0,
-        },
-      },
       {
         "filename",
         path = 1,
         symbols = { readonly = "", unnamed = "" },
       },
     },
-    lualine_x = { "encoding", "filetype" },
+    lualine_x = { "filetype" },
     lualine_y = {},
     lualine_z = {},
   },
