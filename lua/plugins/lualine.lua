@@ -30,7 +30,6 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = {},
-    lualine_b = { "branch" },
     lualine_c = {
       -- "filename",
       {
@@ -45,19 +44,10 @@ require("lualine").setup({
       {
         "filename",
         path = 1,
-        symbols = {
-          modified = "  ",
-          readonly = "",
-          unnamed = "",
-        },
-      },
-      {
-
-        "diagnostics",
-        sources = { "nvim_lsp" },
+        symbols = { readonly = "", unnamed = "" },
       },
     },
-    lualine_x = { "filetype" },
+    lualine_x = { "encoding", "filetype" },
     lualine_y = {},
     lualine_z = {},
   },
@@ -70,4 +60,5 @@ require("lualine").setup({
     lualine_z = {},
   },
   tabline = {},
+  extensions = { "neo-tree" },
 })
