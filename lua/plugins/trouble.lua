@@ -4,6 +4,7 @@ require("trouble").setup({
   position = "bottom", -- position of the list can be: bottom, top, left, right
   height = 15,
   padding = false,
+  icons = false,
 
   action_keys = {
     -- key mappings for actions in the trouble list
