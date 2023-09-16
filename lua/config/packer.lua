@@ -55,6 +55,8 @@ require("packer").startup(function(use)
     after = "nvim-treesitter",
   })
 
+  use("ThePrimeagen/harpoon")
+
   use("nvim-lualine/lualine.nvim")          -- Fancier statusline
   use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
@@ -62,7 +64,7 @@ require("packer").startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    requires = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+    requires = { "nvim-lua/plenary.nvim" },
   })
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
