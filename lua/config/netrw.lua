@@ -24,7 +24,7 @@ vim.cmd([[
     nmap <buffer> P <C-w>z
     nmap <buffer> L <CR>:Lexplore<CR>
     nmap <buffer> <Leader>dd :Lexplore<CR>
-    nmap <buffer> ff %:w<CR>
+    nmap <buffer> fn %:w<CR>
     nmap <buffer> fr R
     nmap <buffer> fc mc
     nmap <buffer> fC mtmc

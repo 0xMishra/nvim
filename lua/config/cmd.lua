@@ -1,9 +1,20 @@
 vim.cmd([[
 
+  function! CycleBuffers()
+    let current_buffer = bufnr('%')   " Get the current buffer number
+    let buffer_list = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != current_buffer && bufname(v:val) !~# "^term://" && bufname(v:val) !~# "^netrw://"')
+    if empty(buffer_list)
+      return
+    endif
+    let next_buffer = buffer_list[0]
+    execute 'buffer ' . next_buffer
+  endfunction
+
+
+  nnoremap <silent> <Tab> :call CycleBuffers()<CR>
+
   " BUFFER KEYMAPS
   nnoremap <silent><S-w> :bdelete<CR>
-  nnoremap <silent><TAB> :bnext<CR>
-  nnoremap <silent><S-TAB> :bprevious<CR>
   nnoremap <del> :bufdo bd <CR>
 
   " remove carriage return character
@@ -19,12 +30,6 @@ vim.cmd([[
 
   nnoremap <silent><space>k :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
-
-  " for highlighting current line number
-
-  " set cursorline
-  " set cursorlineopt=number
-  " autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
 
   nnoremap  <silent><space>l :Lazy<CR>
 
