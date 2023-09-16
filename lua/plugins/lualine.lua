@@ -55,10 +55,9 @@ require("lualine").setup({
 
         "diagnostics",
         sources = { "nvim_lsp" },
-        symbols = { error = " ", warn = " ", info = " " },
       },
     },
-    lualine_x = { "encoding", "filetype" },
+    lualine_x = { "filetype" },
     lualine_y = {},
     lualine_z = {},
   },
