@@ -5,6 +5,7 @@ vim.cmd([[
 ]])
 
 -- CONFIG
+require("config.netrw")
 require("config.options")
 require("config.cmd")
 require("config.packer")
@@ -13,7 +14,6 @@ require("config.autocmds")
 
 -- PLUGINS
 require("plugins.colorscheme")
-require("plugins.neo-tree")
 require("plugins.treesitter")
 require("plugins.git-plugins")
 require("plugins.lualine")

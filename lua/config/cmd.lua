@@ -12,7 +12,7 @@ vim.cmd([[
   " NETRW CONFIG
 
   let g:netrw_localcopydircmd = 'cp -r'
-  nnoremap <silent><space>f :Neotree<CR>
+  nnoremap <silent><space>f :Explore<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>c :e ~/.config/nvim/<CR>
