@@ -13,6 +13,9 @@ require("config.keymaps")
 require("config.autocmds")
 
 -- PLUGINS
+-- for tailwindcss autocompletion
+-- https://github.com/yaegassy/coc-tailwindcss3
+-- Run :CocInstall @yaegassy/coc-tailwindcss3
 require("plugins.colorscheme")
 require("plugins.treesitter")
 require("plugins.git-plugins")
