@@ -67,7 +67,6 @@ local servers = {
   cssls = {},
   cssmodules_ls = {},
   prismals = {},
-  tailwindcss = {},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

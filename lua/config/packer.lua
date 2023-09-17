@@ -55,6 +55,11 @@ require("packer").startup(function(use)
     after = "nvim-treesitter",
   })
 
+  use({
+    "neoclide/coc.nvim",
+    branch = "release",
+  })
+
   use("ThePrimeagen/harpoon")
 
   use("nvim-lualine/lualine.nvim")          -- Fancier statusline
