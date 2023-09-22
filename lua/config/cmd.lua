@@ -11,7 +11,7 @@ vim.cmd([[
 
   let g:netrw_localcopydircmd = 'cp -r'
   nnoremap <silent><space>f :Explore<CR>
-  command! AutoIndent :silent execute 'normal gg=G' | :silent update
+  command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
