@@ -66,7 +66,17 @@ require("packer").startup(function(use)
 
   use("ThePrimeagen/harpoon")
 
-  use("nvim-lualine/lualine.nvim")          -- Fancier statusline
+  use("nvim-lualine/lualine.nvim") -- Fancier statusline
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    run = function()
+      require("indent_blankline").setup({
+        char = "⏐",
+
+        show_trailing_blankline_indent = false,
+      })
+    end
+  }) -- Add indentation guides even on blank lines
 
   -- Fuzzy Finder (files, lsp, etc)
   use({
