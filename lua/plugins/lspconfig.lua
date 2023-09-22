@@ -93,3 +93,27 @@ mason_lspconfig.setup_handlers({
     })
   end,
 })
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  }
+
+  vim.lsp.buf.execute_command(params)
+end
+
+require("lspconfig").tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    },
+  },
+})
+
+vim.cmd([[
+  nnoremap <silent> <space>oi :OrganizeImports<CR>
+]])
