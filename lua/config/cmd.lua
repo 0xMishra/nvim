@@ -11,6 +11,8 @@ vim.cmd([[
 
   let g:netrw_localcopydircmd = 'cp -r'
   nnoremap <silent><space>f :Explore<CR>
+  command! AutoIndent :silent execute 'normal gg=G' | :silent update
+  nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>c :e ~/.config/nvim/<CR>
@@ -31,17 +33,17 @@ vim.cmd([[
 
   " open terminal in insert mode by default
   augroup insertonenter
-		function! InsertOnTerminal()
-			if &buftype ==# "terminal"
-				normal i
-			endif
-		endfunction
+  function! InsertOnTerminal()
+  if &buftype ==# "terminal"
+  normal i
+  endif
+  endfunction
 
-		autocmd! BufEnter * call InsertOnTerminal()
+  autocmd! BufEnter * call InsertOnTerminal()
 
-		if has('nvim')
-			autocmd! TermOpen * call InsertOnTerminal()
-		endif
+  if has('nvim')
+  autocmd! TermOpen * call InsertOnTerminal()
+  endif
   augroup END
 
   " EMMET CONFIG

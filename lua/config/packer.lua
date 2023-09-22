@@ -16,7 +16,6 @@ require("packer").startup(function(use)
   use("echasnovski/mini.comment")
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("echasnovski/mini.pairs")
-  use("jose-elias-alvarez/null-ls.nvim")
   use("christoomey/vim-tmux-navigator")
   use("folke/trouble.nvim")
 
@@ -68,7 +67,6 @@ require("packer").startup(function(use)
   use("ThePrimeagen/harpoon")
 
   use("nvim-lualine/lualine.nvim")          -- Fancier statusline
-  use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 
   -- Fuzzy Finder (files, lsp, etc)
   use({

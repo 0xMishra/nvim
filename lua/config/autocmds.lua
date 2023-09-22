@@ -5,6 +5,9 @@ local colors = {
   bg = "#252829",
 }
 
+-- Set up the autocmd to format on save if there is an lsp attached to the current buffer
+api.nvim_create_autocmd("BufWritePre", { command = [[:Format]] })
+
 -- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
