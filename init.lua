@@ -1,8 +1,6 @@
 -- only if neovim >=0.9
 -- To make neovim start faster
-vim.cmd([[
-  autocmd VimEnter * lua require'vim.loader'.enable()
-]])
+vim.loader.enable()
 
 -- CONFIG
 require("config.netrw")
