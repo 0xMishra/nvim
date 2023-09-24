@@ -16,6 +16,9 @@ null_ls.setup({
   sources = {
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.gofumpt,
+    formatting.goimports_reviser,
+    formatting.golines,
     formatting.stylua,
     -- diagnostics.flake8
   },
@@ -37,16 +40,3 @@ null_ls.setup({
     end
   end,
 })
-
--- Define a function to run :Format
-function Format_on_write()
-  vim.cmd(":Format")
-end
-
--- Set up the autocmd on BufWritePre for specific filetypes
-vim.cmd([[
-  augroup FormatOnWrite
-    autocmd!
-    autocmd BufWritePre *.go lua Format_on_write()
-  augroup END
-]])
