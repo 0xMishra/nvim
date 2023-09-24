@@ -9,6 +9,7 @@ require("config.options")
 require("config.cmd")
 require("config.keymaps")
 require("config.autocmds")
+require('config.autoformat')
 
 -- PLUGINS
 -- for tailwindcss autocompletion
