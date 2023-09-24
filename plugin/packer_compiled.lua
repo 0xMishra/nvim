@@ -204,6 +204,16 @@ _G.packer_plugins = {
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/aspirin/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",

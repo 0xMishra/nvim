@@ -19,11 +19,13 @@ require("packer").startup(function(use)
   use("christoomey/vim-tmux-navigator")
   use("folke/trouble.nvim")
 
+  -- git plugins
+  use("tpope/vim-fugitive")
+  use "tpope/vim-rhubarb"
   use({
     "lewis6991/gitsigns.nvim",
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   })
-  -- using packer.nvim
 
   use({ -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",
