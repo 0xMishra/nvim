@@ -24,36 +24,15 @@ require("nvim-treesitter.configs").setup({
   },
   auto_install = true,
   ensure_installed = {
-    "c",
     "css",
     "html",
     "javascript",
     "json",
     "jsonc",
     "lua",
-    "luadoc",
-    "luap",
-    "markdown",
-    "markdown_inline",
-    "python",
-    "query",
-
-    "regex",
     "tsx",
     "typescript",
-    "vim",
-    "vimdoc",
-    "yaml",
-    "rust",
-    "toml",
-    "cpp",
-    "bash",
-    "go",
     "prisma",
-    -- "gomod",
-
-    -- "gowork",
-    -- "gosum",
   },
   incremental_selection = {
     enable = true,
@@ -84,13 +63,13 @@ require("nvim-treesitter.configs").setup({
         ["ip"] = { query = "@parameter.inner", desc = "inside a parameter" },
       },
       selection_modes = {
-        ["@parameter.outer"] = "v", -- charwise
-        ["@parameter.inner"] = "v", -- charwise
-        ["@function.outer"] = "v", -- charwise
+        ["@parameter.outer"] = "v",   -- charwise
+        ["@parameter.inner"] = "v",   -- charwise
+        ["@function.outer"] = "v",    -- charwise
         ["@conditional.outer"] = "V", -- linewise
-        ["@loop.outer"] = "V",    -- linewise
+        ["@loop.outer"] = "V",        -- linewise
 
-        ["@class.outer"] = "<c-v>", -- blockwise
+        ["@class.outer"] = "<c-v>",   -- blockwise
       },
       include_surrounding_whitespace = false,
     },

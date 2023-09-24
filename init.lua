@@ -3,10 +3,10 @@
 vim.loader.enable()
 
 -- CONFIG
+require("config.packer")
 require("config.netrw")
 require("config.options")
 require("config.cmd")
-require("config.packer")
 require("config.keymaps")
 require("config.autocmds")
 
