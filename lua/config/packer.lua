@@ -18,6 +18,7 @@ require("packer").startup(function(use)
   use("echasnovski/mini.pairs")
   use("christoomey/vim-tmux-navigator")
   use("folke/trouble.nvim")
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- git plugins
   use("tpope/vim-fugitive")
