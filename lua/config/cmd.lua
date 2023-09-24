@@ -20,7 +20,7 @@ vim.cmd([[
   nnoremap <silent><space>k :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
-  nnoremap  <silent><space>l :Lazy<CR>
+  nnoremap  <silent><space>l :PackerSync<CR>
 
   " escaping the terminal
   tnoremap <Esc> <C-\><C-n>
