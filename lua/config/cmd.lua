@@ -50,8 +50,6 @@ vim.cmd([[
   autocmd TermEnter * call winrestview({'topline': line('$')})
 
   " formatting a buffer
-  nnoremap <silent>ff :lua vim.lsp.buf.format()<CR>
+  nnoremap <silent>bf :lua vim.lsp.buf.format()<CR>
 
 ]])
-
--- EOF --
