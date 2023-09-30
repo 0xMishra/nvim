@@ -77,7 +77,7 @@ require("packer").startup(function(use)
 
         show_trailing_blankline_indent = false,
       })
-    end
+    end,
   }) -- Add indentation guides even on blank lines
 
   -- Fuzzy Finder (files, lsp, etc)

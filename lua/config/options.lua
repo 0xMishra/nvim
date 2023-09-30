@@ -46,6 +46,7 @@ local options = {
   title = true,                           -- set the title of window to the value of the titlestring
   confirm = true,                         -- confirm to save changes before exiting modified buffer
   fillchars = { eob = " " },              -- change the character at the end of buffer
+  colorcolumn = "120",
 }
 
 vim.g.mapleader = " "
