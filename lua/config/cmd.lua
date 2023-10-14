@@ -4,11 +4,11 @@ vim.cmd([[
   nnoremap <silent><S-w> :bdelete<CR>
   nnoremap <del> :bufdo bd <CR>
 
+
   " remove carriage return character
   nnoremap <silent><space>r :%s/\r/\r/g<CR>
 
   " NETRW CONFIG
-
   let g:netrw_localcopydircmd = 'cp -r'
   nnoremap <silent><space>f :Explore<CR>
   command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
@@ -16,19 +16,14 @@ vim.cmd([[
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>c :e ~/.config/nvim/<CR>
-
   nnoremap <silent><space>k :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
-
   nnoremap  <silent><space>l :PackerSync<CR>
 
   " escaping the terminal
   tnoremap <Esc> <C-\><C-n>
-
   nnoremap <C-d> <C-d>zz
   nnoremap <C-u> <C-u>zz
-
-
   autocmd TermEnter * setlocal nobuflisted
 
   " open terminal in insert mode by default
@@ -37,7 +32,9 @@ vim.cmd([[
   if &buftype ==# "terminal"
   normal i
   endif
+
   endfunction
+
 
   autocmd! BufEnter * call InsertOnTerminal()
 
@@ -53,3 +50,4 @@ vim.cmd([[
   nnoremap <silent> <space>bf :lua vim.lsp.buf.format()<CR>
 
 ]])
+
