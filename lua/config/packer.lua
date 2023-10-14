@@ -15,10 +15,9 @@ require("packer").startup(function(use)
   use("sainnhe/gruvbox-material")
   use("echasnovski/mini.comment")
   use("JoosepAlviste/nvim-ts-context-commentstring")
-  use("echasnovski/mini.pairs")
   use("christoomey/vim-tmux-navigator")
   use("folke/trouble.nvim")
-  use("jose-elias-alvarez/null-ls.nvim")
+  use("lukas-reineke/indent-blankline.nvim")
 
   -- git plugins
   use("tpope/vim-fugitive")
@@ -61,24 +60,9 @@ require("packer").startup(function(use)
     after = "nvim-treesitter",
   })
 
-  use({
-    "neoclide/coc.nvim",
-    branch = "release",
-  })
-
   use("ThePrimeagen/harpoon")
 
   use("nvim-lualine/lualine.nvim") -- Fancier statusline
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    run = function()
-      require("indent_blankline").setup({
-        char = "⏐",
-
-        show_trailing_blankline_indent = false,
-      })
-    end,
-  }) -- Add indentation guides even on blank lines
 
   -- Fuzzy Finder (files, lsp, etc)
   use({
