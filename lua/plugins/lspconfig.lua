@@ -61,12 +61,9 @@ local servers = {
     },
   },
   html = {},
-  jsonls = {},
   tsserver = {},
   emmet_ls = {},
   cssls = {},
-  cssmodules_ls = {},
-  prismals = {},
   gopls = {}
 }
 
