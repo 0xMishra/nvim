@@ -50,4 +50,3 @@ vim.cmd([[
   nnoremap <silent> <space>bf :lua vim.lsp.buf.format()<CR>
 
 ]])
-
