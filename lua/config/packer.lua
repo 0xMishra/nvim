@@ -21,6 +21,12 @@ require("packer").startup(function(use)
 	use("echasnovski/mini.pairs")
 	use("jose-elias-alvarez/null-ls.nvim")
 
+	-- for installing tailwindcss coz mason tailwindcss server sucks :(
+	use({
+		"neoclide/coc.nvim",
+		branch = "release",
+	})
+
 	-- git plugins
 	use("tpope/vim-fugitive")
 	use({
