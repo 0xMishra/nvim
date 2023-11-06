@@ -9,6 +9,7 @@ require("config.options")
 require("config.cmd")
 require("config.keymaps")
 require("config.autocmds")
+require("config.autoformat")
 
 -- PLUGINS
 -- for tailwindcss autocompletion
@@ -25,5 +26,4 @@ require("plugins.telescope")
 require("plugins.trouble")
 require("plugins.harpoon")
 require("plugins.indent-blankline")
-require("plugins.null-ls")
 require("plugins.mini-pairs")
