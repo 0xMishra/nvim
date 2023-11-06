@@ -65,7 +65,8 @@ local servers = {
   emmet_ls = {},
   cssls = {},
   gopls = {},
-  prismals = {}
+  prismals = {},
+  jsonls = {}
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

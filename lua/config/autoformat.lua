@@ -7,6 +7,6 @@ end
 vim.cmd([[
   augroup FormatOnWrite
     autocmd!
-    autocmd BufWritePre *.lua,*.json,*.html,*.tsx,*.jsx,*.go,*.py,*.rs lua Format_on_write()
+    autocmd BufWritePre *.lua,*.json,*.html,*.css,*.tsx,*.jsx,*.go,*.js,*.ts,*.mjs lua Format_on_write()
   augroup END
 ]])
