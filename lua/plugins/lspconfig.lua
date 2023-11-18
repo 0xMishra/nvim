@@ -58,6 +58,10 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+      },
     },
   },
   html = {},
@@ -66,7 +70,7 @@ local servers = {
   cssls = {},
   gopls = {},
   prismals = {},
-  jsonls = {}
+  jsonls = {},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
