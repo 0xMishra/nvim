@@ -15,9 +15,9 @@ require("config.autocmds")
 -- https://github.com/yaegassy/coc-tailwindcss3
 -- Run :CocInstall @yaegassy/coc-tailwindcss3
 require("plugins.colorscheme")
+require("plugins.lualine")
 require("plugins.treesitter")
 require("plugins.git-plugins")
-require("plugins.lualine")
 require("plugins.null-ls")
 require("plugins.cmp")
 require("plugins.comments")

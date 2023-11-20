@@ -10,19 +10,15 @@ require("lualine").setup({
         "startify",
         "dashboard",
         "neo-tree",
-
         "packer",
         "neogitstatus",
         "NvimTree",
-
         "Trouble",
         "alpha",
         "lir",
         "Outline",
-
         "spectre_panel",
         "toggleterm",
-
         "qf",
       },
       winbar = {},
@@ -30,17 +26,18 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = {},
+    lualine_b = { "branch", "diff", "diagnostics" },
     lualine_c = {
       {
         "filename",
         path = 1,
-        symbols = { readonly = "", unnamed = "" },
       },
     },
     lualine_x = { "filetype" },
     lualine_y = {},
     lualine_z = {},
   },
+
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
@@ -49,5 +46,6 @@ require("lualine").setup({
     lualine_y = {},
     lualine_z = {},
   },
+
   tabline = {},
 })
