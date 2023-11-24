@@ -15,11 +15,9 @@ require("packer").startup(function(use)
   use("sainnhe/gruvbox-material")
   use("echasnovski/mini.comment")
   use("JoosepAlviste/nvim-ts-context-commentstring")
-  use("christoomey/vim-tmux-navigator")
   use("folke/trouble.nvim")
   use("lukas-reineke/indent-blankline.nvim")
   use("echasnovski/mini.pairs")
-  use("nvimtools/none-ls.nvim")
 
   -- for installing tailwindcss coz mason tailwindcss server sucks :(
   use({
@@ -28,7 +26,6 @@ require("packer").startup(function(use)
   })
 
   -- git plugins
-  use("tpope/vim-fugitive")
   use({
     "lewis6991/gitsigns.nvim",
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
