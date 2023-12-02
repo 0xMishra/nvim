@@ -19,6 +19,7 @@ require("packer").startup(function(use)
   use("folke/trouble.nvim")
   use("lukas-reineke/indent-blankline.nvim")
   use("echasnovski/mini.pairs")
+  use("nvimtools/none-ls.nvim")
 
   -- for installing tailwindcss coz mason tailwindcss server sucks :(
   use({
