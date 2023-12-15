@@ -32,9 +32,6 @@ require("nvim-treesitter.configs").setup({
 		"tsx",
 		"typescript",
 		"prisma",
-		"go",
-		"gomod",
-		"gosum",
 	},
 	incremental_selection = {
 		enable = true,

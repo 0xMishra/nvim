@@ -13,17 +13,26 @@ end
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("sainnhe/gruvbox-material")
+
+	-- for comments
 	use("echasnovski/mini.comment")
+
+	-- for commenting stuff like jsx in reactjs files
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+
 	use("christoomey/vim-tmux-navigator")
 	use("folke/trouble.nvim")
+
+	-- for indenting
 	use("lukas-reineke/indent-blankline.nvim")
 	use("echasnovski/mini.pairs")
+
+	-- for file formatting
 	use({
 		"stevearc/conform.nvim",
 	})
 
-	-- for installing tailwindcss coz mason tailwindcss server sucks :(
+	-- for installing tailwindcss via coc coz mason tailwindcss server sucks :(
 	use({
 		"neoclide/coc.nvim",
 		branch = "release",
