@@ -20,6 +20,5 @@ Requirements:
 - Make sure to review the readmes of the plugins if you are experiencing errors. In particular:
   - [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [telescope](https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies) pickers.
   - [build-essential](https://phoenixnap.com/kb/install-gcc-ubuntu) for gcc and clang tools
-  - [golang](https://go.dev/dl/) for gopls server and go formatting tools
   - [nodejs and NPM](https://nodejs.org/en) for typescript server and prettier
   - [stylua](https://github.com/JohnnyMorganz/StyLua) for formatting lua files. Can be installed easily with Rust's Cargo package manager
