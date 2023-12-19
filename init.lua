@@ -9,7 +9,6 @@ require("config.options")
 require("config.cmd")
 require("config.keymaps")
 require("config.autocmds")
-require("config.autoformat")
 
 -- PLUGINS
 -- for tailwindcss autocompletion
@@ -18,6 +17,7 @@ require("config.autoformat")
 require("plugins.colorscheme")
 require("plugins.lualine")
 require("plugins.treesitter")
+require("plugins.conform")
 require("plugins.git-plugins")
 require("plugins.cmp")
 require("plugins.comments")
