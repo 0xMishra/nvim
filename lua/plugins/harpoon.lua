@@ -1,7 +1,7 @@
 -- HARPOON INTEGRATIONS
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-	return
+  return
 end
 
 telescope.load_extension("harpoon")
@@ -16,33 +16,33 @@ vim.keymap.set("n", "<space>h", ui.toggle_quick_menu)
 
 -- TERMINAL SHORTCUT
 vim.keymap.set("n", "<space>t", function()
-	term.gotoTerminal(1)
+  term.gotoTerminal(1)
 end)
 vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
 
 vim.cmd("autocmd TermOpen * startinsert")
 
 vim.keymap.set("n", "<space>1", function()
-	ui.nav_file(1)
+  ui.nav_file(1)
 end)
 vim.keymap.set("n", "<space>2", function()
-	ui.nav_file(2)
+  ui.nav_file(2)
 end)
 vim.keymap.set("n", "<space>3", function()
-	ui.nav_file(3)
+  ui.nav_file(3)
 end)
 vim.keymap.set("n", "<space>4", function()
-	ui.nav_file(4)
+  ui.nav_file(4)
 end)
 vim.keymap.set("n", "<space>5", function()
-	ui.nav_file(5)
+  ui.nav_file(5)
 end)
 vim.keymap.set("n", "<space>6", function()
-	ui.nav_file(6)
+  ui.nav_file(6)
 end)
 vim.keymap.set("n", "<space>7", function()
-	ui.nav_file(7)
+  ui.nav_file(7)
 end)
 vim.keymap.set("n", "<space>8", function()
-	ui.nav_file(8)
+  ui.nav_file(8)
 end)
