@@ -14,6 +14,12 @@ require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("sainnhe/gruvbox-material")
 
+	-- for tailwindcss coz Mason tailwindcss is damn slow and it sucks :(
+	use({
+		"neoclide/coc.nvim",
+		branch = "release",
+	})
+
 	-- for comments
 	use("echasnovski/mini.comment")
 
