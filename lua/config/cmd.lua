@@ -2,21 +2,20 @@ vim.cmd([[
 
   " BUFFER KEYMAPS
   nnoremap <silent><S-w> :bdelete<CR>
-  nnoremap <del> :bufdo bd <CR>
+  nnoremap <silent><del> :bufdo bd <CR>
 
 
   " remove carriage return character
   nnoremap <silent><space>r :%s/\r/\r/g<CR>
 
   " NETRW CONFIG
-  let g:netrw_localcopydircmd = 'cp -r'
   nnoremap <silent><space>f :Explore<CR>
   command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>c :e ~/.config/nvim/<CR>
-  nnoremap <silent><space>k :Telescope keymaps<CR>
+  nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
   " escaping the terminal

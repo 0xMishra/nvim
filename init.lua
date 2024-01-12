@@ -11,9 +11,6 @@ require("config.keymaps")
 require("config.autocmds")
 
 -- PLUGINS
--- for tailwindcss autocompletion
--- https://github.com/yaegassy/coc-tailwindcss3
--- Run :CocInstall @yaegassy/coc-tailwindcss3
 require("plugins.colorscheme")
 require("plugins.lualine")
 require("plugins.treesitter")
@@ -27,3 +24,12 @@ require("plugins.trouble")
 require("plugins.harpoon")
 require("plugins.indent-blankline")
 require("plugins.mini-pairs")
+
+-- TODO (after initializing neovim)
+
+-- for tailwindcss autocompletion
+-- https://github.com/yaegassy/coc-tailwindcss3
+-- Run :CocInstall @yaegassy/coc-tailwindcss3
+
+-- for formatting js/ts files install prettier
+-- Run :MasonInstall prettierd
