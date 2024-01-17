@@ -24,3 +24,7 @@ require("plugins.harpoon")
 require("plugins.indent-blankline")
 require("plugins.mini-pairs")
 require("plugins.null-ls")
+
+-- TODO (after initializing neovim)
+-- for tailwindcss autocompletion
+-- https://github.com/yaegassy/coc-tailwindcss3
