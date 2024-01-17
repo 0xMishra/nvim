@@ -4,6 +4,8 @@ vim.cmd([[
   nnoremap <silent><S-w> :bdelete<CR>
   nnoremap <silent><del> :bufdo bd <CR>
 
+  nnoremap <space>lsp :LspRestart<CR>
+  nnoremap <space>coc :CocStart<CR>
 
   " remove carriage return character
   nnoremap <silent><space>r :%s/\r/\r/g<CR>
@@ -14,7 +16,6 @@ vim.cmd([[
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
-  nnoremap <silent><space>c :e ~/.config/nvim/<CR>
   nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 

@@ -67,7 +67,6 @@ local servers = {
 	html = {},
 	tsserver = {},
 	emmet_ls = {},
-	eslint = {},
 	cssls = {},
 	prismals = {},
 	jsonls = {},

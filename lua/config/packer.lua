@@ -29,8 +29,6 @@ require("packer").startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 	use("folke/trouble.nvim")
 
-	use("stevearc/conform.nvim")
-
 	-- for indenting
 	use("lukas-reineke/indent-blankline.nvim")
 	use("echasnovski/mini.pairs")
@@ -85,6 +83,14 @@ require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		requires = { "nvim-lua/plenary.nvim" },
+	})
+
+	-- mason null ls for automatically installing formatters and linters
+	use({
+		"jay-babu/mason-null-ls.nvim",
+		requires = {
+			"nvimtools/none-ls.nvim",
+		},
 	})
 
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
