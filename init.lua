@@ -28,3 +28,4 @@ require("plugins.null-ls")
 -- TODO (after initializing neovim)
 -- for tailwindcss autocompletion
 -- https://github.com/yaegassy/coc-tailwindcss3
+-- Run :CocInstall yaegassy/coc-tailwindcss3
