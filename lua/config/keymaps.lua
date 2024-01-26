@@ -43,6 +43,7 @@ vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = t
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
 
+-- Coc keymaps
 -- Use K to show documentation in preview window for coc.nvim plugin
 function _G.show_docs()
 	local cw = vim.fn.expand("<cword>")
