@@ -41,4 +41,10 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 	},
+
+	performance = {
+		trigger_debounce_time = 100,
+		throttle = 150,
+		fetching_timeout = 20,
+	},
 })

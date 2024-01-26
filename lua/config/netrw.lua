@@ -4,6 +4,8 @@ vim.cmd([[
   let g:netrw_banner= 0
 
   hi! link netrwMarkFile Search
+  let g:netrw_localcopydircmd = 'cp -r'
+
   function! NetrwRemoveRecursive()
     if &filetype ==# 'netrw'
       cnoremap <buffer> <CR> rm -r<CR>
@@ -17,6 +19,7 @@ vim.cmd([[
       cunmap <buffer> <CR>
     endif
   endfunction
+
   function! NetrwMapping()
     nmap <buffer> H u
     nmap <buffer> h -^
@@ -38,6 +41,7 @@ vim.cmd([[
     nmap <buffer> bl gb
     nmap <buffer> FF :call NetrwRemoveRecursive()<CR>
   endfunction
+
   augroup netrw_mapping
     autocmd!
     autocmd filetype netrw call NetrwMapping()
