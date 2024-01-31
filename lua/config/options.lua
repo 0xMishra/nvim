@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local options = {
+	guicursor = "", -- shape of cursor in normal mode
 	incsearch = true, -- make search act like search in modern browsers
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
