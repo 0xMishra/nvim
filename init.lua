@@ -1,3 +1,5 @@
+-- for installing tailwindcss server via coc.nvim
+-- run :InstallCocTailwindCSS3 after initializing neovim
 vim.loader.enable()
 
 require("config.packer")
@@ -20,6 +22,3 @@ require("plugins.harpoon")
 require("plugins.indent-blankline")
 require("plugins.mini-pairs")
 require("plugins.null-ls")
-
--- for installing tailwindcss server
-vim.cmd("command! InstallCocTailwindCSS3 :!~/.config/nvim/after/ftplugin/coc.sh")

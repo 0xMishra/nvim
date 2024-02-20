@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# TODO (after initializing neovim)
 # for tailwindcss autocompletion
 # https://github.com/yaegassy/coc-tailwindcss3
-# Run :CocInstall yaegassy/coc-tailwindcss3
 
 # Check if npm is installed
 if ! command -v npm &> /dev/null; then

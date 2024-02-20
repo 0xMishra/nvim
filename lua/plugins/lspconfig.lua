@@ -120,3 +120,6 @@ require("lspconfig").tsserver.setup({
 vim.cmd([[
   nnoremap <silent> <space>oi :OrganizeImports<CR>
 ]])
+
+-- for installing tailwindcss server via coc.nvim
+vim.cmd("command! InstallCocTailwindCSS3 :!~/.config/nvim/after/ftplugin/coc.sh")

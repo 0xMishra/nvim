@@ -13,7 +13,7 @@ This repo is a fork of Kickstart.nvim that targets _only_ the latest ['stable'](
 
 ### Installation
 
-> **NOTE** > [Backup](#FAQ) your previous configuration (if any exists)
+> **NOTE** > Backup your previous configuration (if any exists)
 
 Requirements:
 
