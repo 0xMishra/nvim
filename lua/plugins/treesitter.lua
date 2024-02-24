@@ -1,5 +1,4 @@
 require("nvim-treesitter.configs").setup({
-
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -10,7 +9,6 @@ require("nvim-treesitter.configs").setup({
 		enable_autocmd = false,
 		config = {
 			javascript = {
-
 				__default = "// %s",
 				jsx_element = "{/* %s */}",
 				jsx_fragment = "{/* %s */}",
@@ -18,7 +16,6 @@ require("nvim-treesitter.configs").setup({
 
 				comment = "// %s",
 			},
-
 			typescript = { __default = "// %s", __multiline = "/* %s */" },
 		},
 	},
@@ -30,6 +27,7 @@ require("nvim-treesitter.configs").setup({
 		"yaml",
 		"bash",
 		"json",
+		"jsonc",
 		"lua",
 		"tsx",
 		"typescript",
@@ -48,12 +46,10 @@ require("nvim-treesitter.configs").setup({
 		select = {
 			enable = true,
 			lookahead = true,
-
 			keymaps = {
 				-- You can use the capture groups defined in textobjects.scm
 				["af"] = { query = "@function.outer", desc = "around a function" },
 				["if"] = { query = "@function.inner", desc = "inner part of a function" },
-
 				["ac"] = { query = "@class.outer", desc = "around a class" },
 				["ic"] = { query = "@class.inner", desc = "inner part of a class" },
 				["ai"] = { query = "@conditional.outer", desc = "around an if statement" },
@@ -69,13 +65,11 @@ require("nvim-treesitter.configs").setup({
 				["@function.outer"] = "v", -- charwise
 				["@conditional.outer"] = "V", -- linewise
 				["@loop.outer"] = "V", -- linewise
-
 				["@class.outer"] = "<c-v>", -- blockwise
 			},
 			include_surrounding_whitespace = false,
 		},
 		move = {
-
 			enable = true,
 			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_previous_start = {
@@ -89,14 +83,12 @@ require("nvim-treesitter.configs").setup({
 				["]p"] = { query = "@parameter.inner", desc = "Next parameter" },
 			},
 		},
-
 		swap = {
 			enable = true,
 			swap_next = {
 				["<leader>a"] = "@parameter.inner",
 			},
 			swap_previous = {
-
 				["<leader>A"] = "@parameter.inner",
 			},
 		},
