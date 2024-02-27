@@ -14,7 +14,6 @@ telescope.setup({
 		layout_config = {
 			--   width = 0.5,
 			--   height = 0.4,
-
 			prompt_position = "top",
 			preview_cutoff = 120,
 		},
@@ -25,7 +24,6 @@ telescope.setup({
 			previewer = false,
 			disable_devicons = true,
 			layout_config = {
-
 				width = 0.5,
 				height = 0.4,
 				prompt_position = "top",
@@ -39,7 +37,6 @@ telescope.setup({
 			theme = "dropdown",
 			layout_config = {
 				width = 0.5,
-
 				height = 0.4,
 				prompt_position = "top",
 				preview_cutoff = 120,
@@ -51,7 +48,6 @@ telescope.setup({
 			theme = "dropdown",
 			layout_config = {
 				width = 0.5,
-
 				height = 0.4,
 				prompt_position = "top",
 				preview_cutoff = 120,
@@ -62,11 +58,9 @@ telescope.setup({
 			disable_devicons = true,
 			previewer = true,
 			layout_config = {
-
 				horizontal = {
 					width = 0.9,
 					height = 0.75,
-
 					preview_width = 0.6,
 				},
 			},
@@ -88,9 +82,7 @@ telescope.setup({
 			disable_devicons = true,
 			previewer = true,
 			layout_config = {
-
 				horizontal = {
-
 					width = 0.9,
 					height = 0.75,
 					preview_width = 0.6,
