@@ -89,7 +89,10 @@ require("packer").startup(function(use)
 	use({
 		"jay-babu/mason-null-ls.nvim",
 		requires = {
-			"nvimtools/none-ls.nvim",
+			{
+				"nvimtools/none-ls.nvim",
+				commit = "e64f03f",
+			},
 		},
 	})
 
