@@ -122,4 +122,4 @@ vim.cmd([[
 ]])
 
 -- for installing tailwindcss server via coc.nvim
-vim.cmd("command! InstallCocTailwindCSS3 :!~/.config/nvim/after/ftplugin/coc.sh")
+vim.cmd("command! InstallCocTailwindCSS3 :CocInstall @yaegassy/coc-tailwindcss3")
