@@ -74,7 +74,11 @@ require("packer").startup(function(use)
 		after = "nvim-treesitter",
 	})
 
-	use("ThePrimeagen/harpoon")
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 
