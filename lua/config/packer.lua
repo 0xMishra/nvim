@@ -35,10 +35,7 @@ require("packer").startup(function(use)
 
 	-- git plugins
 	use("tpope/vim-fugitive")
-	use({
-		"lewis6991/gitsigns.nvim",
-		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-	})
+	use("airblade/vim-gitgutter")
 
 	use({ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
