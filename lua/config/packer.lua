@@ -37,6 +37,8 @@ require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("airblade/vim-gitgutter")
 
+	use("tpope/vim-vinegar")
+
 	use({ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		requires = {
