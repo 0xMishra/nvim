@@ -1,4 +1,8 @@
 vim.cmd([[
+  " git gutter symbols config
+  let g:gitgutter_sign_added = "▎"
+  let g:gitgutter_sign_modified = "▎"
+  let g:gitgutter_sign_removed = "契"
 
   " for coc tailwind server
   au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
@@ -30,19 +34,17 @@ vim.cmd([[
 
   " open terminal in insert mode by default
   augroup insertonenter
-  function! InsertOnTerminal()
-  if &buftype ==# "terminal"
-  normal i
-  endif
+    function! InsertOnTerminal()
+      if &buftype ==# "terminal"
+        normal i
+      endif
+    endfunction
 
-  endfunction
+    autocmd! BufEnter * call InsertOnTerminal()
 
-
-  autocmd! BufEnter * call InsertOnTerminal()
-
-  if has('nvim')
-  autocmd! TermOpen * call InsertOnTerminal()
-  endif
+    if has('nvim')
+      autocmd! TermOpen * call InsertOnTerminal()
+    endif
   augroup END
 
   " EMMET CONFIG
