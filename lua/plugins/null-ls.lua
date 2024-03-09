@@ -4,6 +4,7 @@ local null_ls = require("null-ls")
 local null_ls_utils = require("null-ls.utils")
 
 mason_null_ls.setup({
+	automatic_installation = true,
 	ensure_installed = {
 		"prettierd", -- prettier formatter
 		"stylua", -- lua formatter
@@ -24,7 +25,7 @@ null_ls.setup({
 		-- diagnostics.eslint_d,
 		diagnostics.eslint_d.with({ -- js/ts linter
 			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+				return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json", ".eslintrc.mjs" }) -- only enable if root has any of these config files
 			end,
 		}),
 		code_actions.gitsigns,

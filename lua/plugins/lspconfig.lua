@@ -1,3 +1,5 @@
+require("neodev").setup({})
+
 -- LSP Keymaps & settings
 
 --  This function gets run when an LSP connects to a particular buffer.
