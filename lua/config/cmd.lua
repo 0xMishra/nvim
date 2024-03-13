@@ -47,6 +47,12 @@ vim.cmd([[
     endif
   augroup END
 
+  " Disable line numbers in terminal buffers
+  augroup TerminalSettings
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup END
+
   " EMMET CONFIG
   autocmd TermEnter * call winrestview({'topline': line('$')})
 
