@@ -26,10 +26,12 @@ vim.cmd([[
   nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
-  " escaping the terminal
-  tnoremap <Esc> <C-\><C-n>
   nnoremap <C-d> <C-d>zz
   nnoremap <C-u> <C-u>zz
+
+  " escaping the terminal
+  tnoremap <Esc> <C-\><C-n>
+
   autocmd TermEnter * setlocal nobuflisted
 
   " open terminal in insert mode by default
@@ -53,10 +55,8 @@ vim.cmd([[
     autocmd TermOpen * setlocal nonumber norelativenumber
   augroup END
 
-  " EMMET CONFIG
   autocmd TermEnter * call winrestview({'topline': line('$')})
 
   " formatting a buffer
   nnoremap <silent> <space>bf :lua vim.lsp.buf.format()<CR>
-
 ]])
