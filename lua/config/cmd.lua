@@ -19,8 +19,6 @@ vim.cmd([[
 
   " NETRW CONFIG
   nnoremap <silent><space>f :Explore<CR>
-  command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
-  nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>sk :Telescope keymaps<CR>
