@@ -39,6 +39,8 @@ require("nvim-treesitter.configs").setup({
 		"gitcommit",
 		"diff",
 		"sql",
+		"dockerfile",
+		"xml",
 		"tmux",
 	},
 	incremental_selection = {
