@@ -22,7 +22,11 @@ null_ls.setup({
 	sources = {
 		formatting.stylua,
 		formatting.prettierd,
-		diagnostics.eslint_d,
+		diagnostics.eslint_d.with({ -- js/ts linter
+			condition = function(utils)
+				return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json", ".eslintrc.mjs" }) -- only enable if root has any of these config files
+			end,
+		}),
 		code_actions.gitsigns,
 	},
 
