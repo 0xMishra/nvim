@@ -23,8 +23,16 @@ vim.cmd([[
   " NETRW CONFIG
   nnoremap <silent><space>f :Explore<CR>
 
-  " vim fugitive
-  nnoremap <silent><space>g :G<CR>
+  " open vim fugitive
+  nnoremap <silent><space>gg :G<CR>
+
+  function! AddGitFile()
+      let filename = expand("%")
+      execute ":G add " . filename
+  endfunction
+
+  " to stage the changes in current file
+  nnoremap <silent><space>ga :call AddGitFile()<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>sk :Telescope keymaps<CR>
