@@ -5,7 +5,7 @@ vim.cmd([[
   let g:gitgutter_sign_removed = "契"
   let g:gitgutter_sign_removed_first_line = '^'
   let g:gitgutter_sign_removed_above_and_below = '{'
-  let g:gitgutter_sign_modified_removed = 'w'
+  let g:gitgutter_sign_modified_removed = '▎'
 
   " for coc tailwind server
   au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
