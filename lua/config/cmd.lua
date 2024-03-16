@@ -23,6 +23,9 @@ vim.cmd([[
   " NETRW CONFIG
   nnoremap <silent><space>f :Explore<CR>
 
+  " vim fugitive
+  nnoremap <silent><space>g :G<CR>
+
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
