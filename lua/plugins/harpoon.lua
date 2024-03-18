@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>m", function()
 	harpoon:list():append()
 end, { desc = "[M]ark file and add to [H]a[R]poon Float" })
 
-vim.keymap.set("n", "<leader>hr", function()
+vim.keymap.set("n", "<leader>hh", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = "Toggle [H]a[R]poon Float" })
 

@@ -1,12 +1,4 @@
 vim.cmd([[
-  " git gutter symbols config
-  let g:gitgutter_sign_added = "▎"
-  let g:gitgutter_sign_modified = "▎"
-  let g:gitgutter_sign_removed = "契"
-  let g:gitgutter_sign_removed_first_line = '^'
-  let g:gitgutter_sign_removed_above_and_below = '{'
-  let g:gitgutter_sign_modified_removed = '▎'
-
   " for coc tailwind server
   au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
 
@@ -25,14 +17,6 @@ vim.cmd([[
 
   " open vim fugitive
   nnoremap <silent><space>gg :G<CR>
-
-  function! AddGitFile()
-      let filename = expand("%")
-      execute ":G add " . filename
-  endfunction
-
-  " to stage the changes in current file
-  nnoremap <silent><space>ga :call AddGitFile()<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>sk :Telescope keymaps<CR>
