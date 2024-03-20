@@ -1,4 +1,8 @@
 vim.cmd([[
+  " AutoIndent a buffer with no LSP installed
+  command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
+  nnoremap <silent> <Leader>ai :AutoIndent<CR>
+
   " for coc tailwind server
   au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
 
