@@ -1,6 +1,6 @@
 vim.cmd([[
   " AutoIndent a buffer with no LSP installed
-  command! AutoIndent :silent execute 'normal gg=G<C-o>' | :silent update
+  command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
   " for coc tailwind server
