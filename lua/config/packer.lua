@@ -20,6 +20,8 @@ require("packer").startup(function(use)
 		branch = "release",
 	})
 
+	use("mbbill/undotree")
+
 	-- for comments
 	use("echasnovski/mini.comment")
 
