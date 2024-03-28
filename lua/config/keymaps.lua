@@ -1,6 +1,9 @@
 -- keymap for not loosing a yanked word
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- undotree keymap
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

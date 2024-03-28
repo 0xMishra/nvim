@@ -1,4 +1,18 @@
 vim.cmd([[
+  " persistent undo file
+  if has("persistent_undo")
+    let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+  endif
+
   " AutoIndent a buffer with no LSP installed
   command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
@@ -20,7 +34,7 @@ vim.cmd([[
   nnoremap <silent><space>f :Explore<CR>
 
   " open vim fugitive
-  nnoremap <silent><space>gg :G<CR>
+  nnoremap <silent><space>g :G<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
   nnoremap <silent><space>sk :Telescope keymaps<CR>
