@@ -17,12 +17,12 @@ vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc =
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
 
 vim.keymap.set("n", "<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
 
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 0,
-		previewer = false,
-	}))
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    winblend = 0,
+    previewer = false,
+  }))
 end, { desc = "[/] Fuzzily search in current buffer]" })
 
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
@@ -50,14 +50,14 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 -- Coc keymaps
 -- Use K to show documentation in preview window for coc.nvim plugin
 function _G.show_docs()
-	local cw = vim.fn.expand("<cword>")
-	if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
-		vim.api.nvim_command("h " .. cw)
-	elseif vim.api.nvim_eval("coc#rpc#ready()") then
-		vim.fn.CocActionAsync("doHover")
-	else
-		vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
-	end
+  local cw = vim.fn.expand("<cword>")
+  if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
+    vim.api.nvim_command("h " .. cw)
+  elseif vim.api.nvim_eval("coc#rpc#ready()") then
+    vim.fn.CocActionAsync("doHover")
+  else
+    vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
+  end
 end
 
 vim.keymap.set("n", "<S-s>", "<CMD>lua _G.show_docs()<CR>", { silent = true })
@@ -69,10 +69,10 @@ vim.keymap.set("n", "<S-s>", "<CMD>lua _G.show_docs()<CR>", { silent = true })
 -- other plugins before putting this into your config
 local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 vim.keymap.set(
-	"i",
-	"<C-j>",
-	'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
-	opts
+  "i",
+  "<C-j>",
+  'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
+  opts
 )
 vim.keymap.set("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
