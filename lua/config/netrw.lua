@@ -42,6 +42,9 @@ vim.cmd([[
     nmap <buffer> bd mB
     nmap <buffer> bl gb
     nmap <buffer> FF :call NetrwRemoveRecursive()<CR>
+    nmap <buffer> s <C-w>z
+    nmap <buffer> S <C-w>z
+    nmap <buffer> I <C-w>z
   endfunction
 
   augroup netrw_mapping
