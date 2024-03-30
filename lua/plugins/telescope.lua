@@ -101,6 +101,17 @@ telescope.setup({
 				},
 			},
 		},
+		diagnostics = {
+			show_line = false,
+			previewer = false,
+			disable_devicons = true,
+			layout_config = {
+				horizontal = {
+					width = 0.7,
+					height = 0.4,
+				},
+			},
+		},
 	},
 	extensions = {
 		fzf = {
