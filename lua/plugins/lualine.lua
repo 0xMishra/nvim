@@ -49,3 +49,4 @@ require("lualine").setup({
 
 	tabline = {},
 })
+

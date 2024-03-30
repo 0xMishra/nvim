@@ -1,4 +1,10 @@
 vim.cmd([[
+  " Map Tab to cycle forward through buffers (skipping buffer 1)
+  nnoremap <silent><Tab> :bnext<CR>
+
+  " Map Shift+Tab to cycle backward through buffers (skipping buffer 1)
+  nnoremap <silent><S-Tab> :bprev<CR>
+
   " AutoIndent a buffer with no LSP installed
   command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
