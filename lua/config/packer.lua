@@ -71,6 +71,13 @@ require("packer").startup(function(use)
 
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 
+	-- Jump between buffers blazingly fast
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+
 	-- Fuzzy Finder (files, lsp, etc)
 	use({
 		"nvim-telescope/telescope.nvim",
