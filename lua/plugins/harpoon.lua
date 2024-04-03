@@ -4,7 +4,7 @@ local harpoon = require("harpoon")
 harpoon:setup({})
 
 vim.keymap.set("n", "<leader>m", function()
-	harpoon:list():append()
+	harpoon:list():add()
 end, { desc = "[M]ark file and add to [H]a[R]poon Float" })
 
 vim.keymap.set("n", "<leader>hh", function()

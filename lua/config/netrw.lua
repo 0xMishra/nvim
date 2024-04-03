@@ -3,7 +3,6 @@ vim.cmd([[
   let g:netrw_winsize = 15
   let g:netrw_banner= 0
   let g:netrw_list_hide = '^\.\./$,^\./$'
-  let g:netrw_fastbrowse = 0
 
   hi! link netrwMarkFile Search
   let g:netrw_localcopydircmd = 'cp -r'
