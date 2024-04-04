@@ -115,6 +115,7 @@ require("lspconfig").tsserver.setup({
 			description = "Organize Imports",
 		},
 	},
+	root_dir = require("lspconfig.util").root_pattern(".git"),
 })
 
 vim.cmd([[
