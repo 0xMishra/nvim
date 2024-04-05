@@ -44,6 +44,7 @@ require("packer").startup(function(use)
 			-- Automatically install LSPs to stdpath for neovim
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 	})
 
@@ -85,16 +86,8 @@ require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	-- mason null ls for automatically installing formatters and linters
-	use({
-		"jay-babu/mason-null-ls.nvim",
-		requires = {
-			{
-				"nvimtools/none-ls.nvim",
-				commit = "e64f03f",
-			},
-		},
-	})
+	use("mfussenegger/nvim-lint") -- for linting
+	use("stevearc/conform.nvim") -- for formatting
 
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
 	use({
