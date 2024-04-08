@@ -1,11 +1,3 @@
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"eslint_d",
-		"prettierd",
-		"stylua",
-	},
-})
-
 local conform = require("conform")
 
 conform.setup({

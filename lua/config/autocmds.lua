@@ -1,7 +1,7 @@
 local api = vim.api
 
 local colors = {
-	fg = "#76787d",
+	fg = "#f5deb3",
 	bg = "#252829",
 }
 
