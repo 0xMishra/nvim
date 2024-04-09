@@ -10,7 +10,6 @@ require("fzf-lua").setup({
 	fzf_opts = {
 		["--keep-right"] = "", -- https://github.com/ibhagwan/fzf-lua/issues/269
 		["--layout"] = "reverse-list",
-		-- ["--ansi"] = false,
 	},
 	keymap = {
 		fzf = {

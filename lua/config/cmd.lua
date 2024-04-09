@@ -23,7 +23,6 @@ vim.cmd([[
   nnoremap <silent><space>g :G<CR>
 
   " SHORTCUT FOR OPENNING THIS CONFIG FILE
-  nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
   nnoremap <C-d> <C-d>zz
