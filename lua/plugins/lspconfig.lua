@@ -115,6 +115,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"emmet_ls",
 		"prismals",
+		"jsonls",
 	},
 	automatic_installation = true,
 })
