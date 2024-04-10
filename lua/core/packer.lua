@@ -65,11 +65,6 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({ -- Additional text objects via treesitter
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		after = "nvim-treesitter",
-	})
-
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 
 	-- Jump between buffers blazingly fast
