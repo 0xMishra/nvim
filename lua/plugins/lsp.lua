@@ -90,8 +90,8 @@ mason_lspconfig.setup({
 mason_tool_installer.setup({
 	ensure_installed = {
 		"stylua",
-		"eslint_d",
 		"prettierd",
+		"eslint_d",
 	},
 })
 

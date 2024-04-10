@@ -80,6 +80,7 @@ require("packer").startup(function(use)
 	})
 
 	use("stevearc/conform.nvim") -- for formatting
+	use("mfussenegger/nvim-lint") -- for linting
 
 	-- Fuzzy Finder (files, lsp, etc)
 	use({
