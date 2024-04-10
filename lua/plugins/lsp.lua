@@ -91,7 +91,6 @@ mason_tool_installer.setup({
 	ensure_installed = {
 		"stylua",
 		"prettierd",
-		"eslint_d",
 	},
 })
 
