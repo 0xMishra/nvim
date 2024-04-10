@@ -42,6 +42,7 @@ require("nvim-treesitter.configs").setup({
 		"dockerfile",
 		"xml",
 		"tmux",
+		"make",
 	},
 	incremental_selection = {
 		enable = true,

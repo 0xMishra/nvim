@@ -1,4 +1,4 @@
--- PLUGINS CONFIG
+-- plugins configurations
 require("plugins.colorscheme")
 require("plugins.lualine")
 require("plugins.treesitter")
