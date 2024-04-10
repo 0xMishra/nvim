@@ -1,0 +1,12 @@
+-- PLUGINS CONFIG
+require("plugins.colorscheme")
+require("plugins.lualine")
+require("plugins.treesitter")
+require("plugins.cmp")
+require("plugins.comment")
+require("plugins.lsp")
+require("plugins.telescope")
+require("plugins.indent")
+require("plugins.git")
+require("plugins.format")
+require("plugins.harpoon")
