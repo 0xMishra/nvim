@@ -1,6 +1,9 @@
 -- keymap for not loosing a yanked word
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- to remove the highlight over searched text
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true })
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
