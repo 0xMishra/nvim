@@ -26,26 +26,22 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-			},
-		},
-		lualine_x = { "filetype", "progress" },
+		lualine_b = {},
+		lualine_c = { "branch", "diagnostics", {
+			"filename",
+			path = 1,
+		} },
+		lualine_x = { "diff", "filetype", "progress" },
 		lualine_y = {},
 		lualine_z = {},
 	},
-
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
 		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_x = { "filetype", "location" },
 		lualine_y = {},
 		lualine_z = {},
 	},
-
 	tabline = {},
 })
