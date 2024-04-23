@@ -10,7 +10,6 @@ vim.cmd([[
   nnoremap <silent><S-w> :bdelete<CR>
   nnoremap <silent><del> :bufdo bd <CR>
 
-  nnoremap <space>lsp :LspRestart<CR>
   nnoremap <space>coc :CocStart<CR>
 
   " remove carriage return character
