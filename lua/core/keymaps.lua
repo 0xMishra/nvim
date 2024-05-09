@@ -1,3 +1,11 @@
+-- open root directory and file tree of the project
+function OpenCurrentDirectory()
+	local current_directory = vim.fn.getcwd()
+	vim.cmd("e " .. current_directory)
+end
+
+vim.api.nvim_set_keymap("n", "<leader>cc", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
+
 -- keymap for not loosing a yanked word
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
