@@ -4,7 +4,7 @@ function OpenCurrentDirectory()
 	vim.cmd("e " .. current_directory)
 end
 
-vim.api.nvim_set_keymap("n", "<leader>cc", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
 
 -- keymap for not loosing a yanked word
 vim.keymap.set("x", "<leader>p", [["_dP]])
