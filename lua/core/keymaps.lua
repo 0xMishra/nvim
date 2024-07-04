@@ -69,11 +69,11 @@ vim.keymap.set("n", "<S-s>", "<CMD>lua _G.show_docs()<CR>", { silent = true })
 local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 vim.keymap.set(
 	"i",
-	"<C-j>",
+	"J",
 	'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
 	opts
 )
-vim.keymap.set("i", "<C-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+vim.keymap.set("i", "K", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
