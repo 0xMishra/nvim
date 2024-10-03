@@ -12,7 +12,7 @@ mason.setup({})
 
 mason_lspconfig.setup({
 	ensure_installed = {
-		"tsserver",
+		"ts_ls",
 		"prismals",
 		"emmet_ls",
 		"lua_ls",
@@ -111,8 +111,8 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 
-	["tsserver"] = function()
-		lspconfig["tsserver"].setup({
+	["ts_ls"] = function()
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			commands = {
 				OrganizeImports = {
