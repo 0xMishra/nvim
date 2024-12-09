@@ -1,4 +1,8 @@
 vim.cmd([[
+  " remap esc key to \ key
+  inoremap \ <esc>
+  vnoremap \ <esc>
+
   " AutoIndent a buffer with no LSP installed
   command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
@@ -25,8 +29,8 @@ vim.cmd([[
   nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
-  nnoremap <C-d> <C-d>zz
-  nnoremap <C-u> <C-u>zz
+  nnoremap <S-d> <C-d>zz
+  nnoremap <S-u> <C-u>zz
 
   " escaping the terminal
   tnoremap <Esc> <C-\><C-n>
