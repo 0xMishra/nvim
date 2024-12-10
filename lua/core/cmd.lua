@@ -30,8 +30,8 @@ vim.cmd([[
   nnoremap <silent><space>sk :Telescope keymaps<CR>
   nnoremap  <silent><space>M :Mason<CR>
 
-  nnoremap <S-d> <C-d>zz
-  nnoremap <S-u> <C-u>zz
+  nnoremap <C-d> <C-d>zz
+  nnoremap <C-u> <C-u>zz
 
   " escaping the terminal
   tnoremap <Esc> <C-\><C-n>
