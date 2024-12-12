@@ -1,9 +1,4 @@
 vim.cmd([[
-  " remap esc key to \ key
-  inoremap \ <esc>
-  vnoremap \ <esc>
-  nnoremap \ <esc>
-
   " AutoIndent a buffer with no LSP installed
   command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
