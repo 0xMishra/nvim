@@ -45,6 +45,7 @@ vim.cmd([[
     nmap <buffer> s <C-w>z
     nmap <buffer> S <C-w>z
     nmap <buffer> I <C-w>z
+    nmap <buffer> i <C-w>z
     nmap <buffer> a <C-w>z
     nmap <buffer> r <C-w>z
   endfunction
