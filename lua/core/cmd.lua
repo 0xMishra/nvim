@@ -3,12 +3,9 @@ vim.cmd([[
   command! AutoIndent :silent execute 'normal gg=G' | :silent update
   nnoremap <silent> <Leader>ai :AutoIndent<CR>
 
-  " for coc tailwind server
-  au FileType html let b:coc_root_patterns = ['.git', '.env', 'tailwind.config.js', 'tailwind.config.cjs']
-
   " BUFFER KEYMAPS
   nnoremap <silent><S-w> :bdelete<CR>
-  nnoremap <silent><del> :bufdo bd <CR>
+  nnoremap <space>bd :bdelete
 
   nnoremap <space>coc :CocStart<CR>
 

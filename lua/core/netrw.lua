@@ -1,6 +1,5 @@
 -- Netrw integrations
 vim.cmd([[
-  let g:netrw_winsize = 15
   let g:netrw_banner= 0
 
   hi! link netrwMarkFile Search
