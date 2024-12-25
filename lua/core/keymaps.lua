@@ -48,3 +48,78 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+-- AutoIndent a buffer with no LSP installed
+vim.api.nvim_create_user_command("AutoIndent", function()
+	vim.cmd("normal gg=G")
+	vim.cmd("update")
+end, {})
+
+vim.keymap.set("n", "<Leader>ai", ":AutoIndent<CR>", { silent = true })
+
+-- BUFFER KEYMAPS
+vim.keymap.set("n", "<S-w>", ":bdelete<CR>", { silent = true })
+vim.keymap.set("n", "<space>bd", ":bdelete", { silent = false })
+
+-- Remove carriage return character
+vim.keymap.set("n", "<space>r", ":%s/\\r//g<CR>", { silent = true })
+
+-- NETRW CONFIG
+vim.keymap.set("n", "<space>f", ":Explore<CR>", { silent = true })
+
+-- Open vim fugitive
+vim.keymap.set("n", "<space>g", ":G<CR>", { silent = true })
+
+-- Shortcut for opening this config file
+vim.keymap.set("n", "<space>sk", ":Telescope keymaps<CR>", { silent = true })
+vim.keymap.set("n", "<space>M", ":Mason<CR>", { silent = true })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+
+-- Escaping the terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
+
+-- Autocommands for terminal settings
+vim.api.nvim_create_autocmd("TermEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.buflisted = false
+	end,
+})
+
+-- Open terminal in insert mode by default
+vim.api.nvim_create_augroup("InsertOnEnter", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "TermOpen" }, {
+	group = "InsertOnEnter",
+	pattern = "*",
+	callback = function()
+		if vim.bo.buftype == "terminal" then
+			vim.cmd("startinsert")
+		end
+	end,
+})
+
+-- Disable line numbers in terminal buffers
+vim.api.nvim_create_augroup("TerminalSettings", { clear = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = "TerminalSettings",
+	pattern = "*",
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+})
+
+-- Scroll to bottom in terminal on entering
+vim.api.nvim_create_autocmd("TermEnter", {
+	pattern = "*",
+	callback = function()
+		vim.fn.winrestview({ topline = vim.fn.line("$") })
+	end,
+})
+
+-- Formatting a buffer
+vim.keymap.set("n", "<space>bf", function()
+	vim.lsp.buf.format()
+end, { silent = true })
