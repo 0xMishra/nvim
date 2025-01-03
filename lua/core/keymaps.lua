@@ -13,7 +13,7 @@ vim.keymap.set("n", "<Del>", ":bufdo bd | Explore<CR>", { noremap = true, silent
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- to remove the highlight over searched text
-vim.keymap.set("n", "q", "<cmd>nohlsearch<CR>", { silent = true })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
