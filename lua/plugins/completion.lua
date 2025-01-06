@@ -54,6 +54,5 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- autocompletion for buffer words
 	}),
 })

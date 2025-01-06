@@ -19,7 +19,6 @@ mason_lspconfig.setup({
 		"jsonls",
 		"cssls",
 		"html",
-		"tailwindcss",
 	},
 })
 
@@ -126,3 +125,5 @@ mason_lspconfig.setup_handlers({
 })
 
 keymap.set("n", "<leader>oi", ":OrganizeImports<CR>", { silent = true })
+-- for installing tailwindcss server via coc.nvim
+vim.cmd("command! InstallTailwindCSS :CocInstall @yaegassy/coc-tailwindcss3")
