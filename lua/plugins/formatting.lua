@@ -11,6 +11,7 @@ conform.setup({
 		html = { "prettierd" },
 		json = { "prettierd" },
 		yaml = { "prettierd" },
+		go = { "gofumpt", "goimports", "golines" },
 
 		markdown = { "prettierd" },
 		graphql = { "prettierd" },
@@ -19,6 +20,7 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 	},
+
 	format_on_save = {
 		lsp_fallback = true,
 		async = false,
