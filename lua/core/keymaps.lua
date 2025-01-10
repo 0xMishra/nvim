@@ -139,3 +139,4 @@ function _G.show_docs()
 end
 
 vim.keymap.set("n", "<S-s>", "<CMD>lua _G.show_docs()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>coc", ":CocRestart<CR>")
