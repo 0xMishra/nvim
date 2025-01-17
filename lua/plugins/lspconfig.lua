@@ -19,12 +19,16 @@ mason_lspconfig.setup({
 		"jsonls",
 		"cssls",
 		"html",
+		"gopls",
 	},
 })
 
 mason_tool_installer.setup({
 	ensure_installed = {
 		"prettierd",
+		"golines",
+		"gofumpt",
+		"goimports",
 	},
 })
 
