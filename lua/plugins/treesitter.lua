@@ -43,6 +43,8 @@ require("nvim-treesitter.configs").setup({
 		"xml",
 		"tmux",
 		"make",
+		"go",
+		"gomod",
 	},
 	incremental_selection = {
 		enable = true,
