@@ -45,6 +45,7 @@ require("nvim-treesitter.configs").setup({
 		"make",
 		"go",
 		"gomod",
+		"gosum",
 	},
 	incremental_selection = {
 		enable = true,
