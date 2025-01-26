@@ -1,9 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	build = function()
-		pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-	end,
-	priority = 1000,
+	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			highlight = {

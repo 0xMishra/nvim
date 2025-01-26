@@ -1,7 +1,8 @@
 return {
 	"echasnovski/mini.comment",
-	version = false,
 	dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+	version = false,
+	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
 		vim.g.skip_ts_context_commentstring_module = true

@@ -5,6 +5,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
+	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
 		local mason = require("mason")

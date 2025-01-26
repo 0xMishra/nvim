@@ -2,6 +2,7 @@ return {
 	{
 		"neoclide/coc.nvim",
 		branch = "release",
+		event = "InsertEnter",
 		config = function()
 			-- for installing tailwindcss server via coc.nvim
 			vim.cmd("command! InstallTailwindCSS :CocInstall @yaegassy/coc-tailwindcss3")
