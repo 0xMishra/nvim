@@ -1,7 +1,5 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local options = {
+
 	guicursor = "", -- shape of cursor in normal mode
 	incsearch = true, -- make search act like search in modern browsers
 	backup = false, -- creates a backup file
@@ -41,7 +39,6 @@ local options = {
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- Makes sure there are always eight lines of context
 	sidescrolloff = 8, -- Makes sure there are always eight lines of context
-	laststatus = 0, -- Always display the status line
 
 	showcmd = false, -- Don't show the command in the last line
 
