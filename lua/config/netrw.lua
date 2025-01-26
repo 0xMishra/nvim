@@ -47,6 +47,8 @@ vim.cmd([[
     nmap <buffer> i <C-w>z
     nmap <buffer> a <C-w>z
     nmap <buffer> r <C-w>z
+    nmap <buffer> <S-l> <C-w>z
+    nmap <buffer> L <C-w>z
   endfunction
 
   augroup netrw_mapping
