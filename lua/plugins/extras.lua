@@ -26,5 +26,7 @@ return {
 		end,
 	},
 
-	"christoomey/vim-tmux-navigator",
+	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
+
+	{ "tpope/vim-fugitive", event = "VeryLazy" },
 }
