@@ -26,6 +26,6 @@ require("lazy").setup({
 	install = { colorscheme = { "gruvbox-material" } },
 
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = { enabled = false },
 	icons = {},
 })
