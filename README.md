@@ -3,7 +3,6 @@
 A starting point for Neovim that is:
 
 - Small
-- Single-file (with examples of moving to multi-file)
 - Documented
 - Modular
 
