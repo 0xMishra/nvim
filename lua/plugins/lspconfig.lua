@@ -24,11 +24,7 @@ return {
 			ensure_installed = {
 				"ts_ls",
 				"prismals",
-				"emmet_ls",
 				"lua_ls",
-				"jsonls",
-				"cssls",
-				"html",
 				"gopls",
 			},
 		})
