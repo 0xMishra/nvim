@@ -22,8 +22,6 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"ts_ls",
-				"prismals",
 				"lua_ls",
 				"gopls",
 			},
