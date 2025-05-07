@@ -49,7 +49,7 @@
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
-    "commit": "1d1c08180a5911db2bcd5d307dc4d9c9de26fe42"
+    "commit": "1255518cb067e038a4755f5cb3e980f79b6ab89c"
   },
   "mason.nvim": {
     "branch": "main",
