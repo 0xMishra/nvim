@@ -21,7 +21,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "43b0c856ae5f32a195d83f4a27fe21d63e6c966c"
+    "commit": "9cd665f46ab7af2e49d140d328b8e72ea1cf511b"
   },
   "gruvbox-material": {
     "branch": "master",
