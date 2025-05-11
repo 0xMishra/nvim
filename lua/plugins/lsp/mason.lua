@@ -1,0 +1,39 @@
+return {
+	"williamboman/mason.nvim",
+	lazy = false,
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+		"neovim/nvim-lspconfig",
+	},
+
+	config = function()
+		local mason = require("mason")
+
+		local mason_lspconfig = require("mason-lspconfig")
+		local mason_tool_installer = require("mason-tool-installer")
+
+		mason.setup({})
+
+		mason_lspconfig.setup({
+			automatic_enable = false,
+			ensure_installed = {
+				"lua_ls",
+				"gopls",
+			},
+		})
+
+		mason_tool_installer.setup({
+			ensure_installed = {
+				"prettierd",
+				"golines",
+				"gofumpt",
+				"goimports",
+			},
+
+			-- NOTE: mason BREAKING Change! Removed setup_handlers
+			-- moved lsp configuration settings back into lspconfig.lua file
+		})
+	end,
+}
