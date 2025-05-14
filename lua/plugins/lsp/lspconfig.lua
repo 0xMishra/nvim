@@ -46,6 +46,9 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>lsp", ":LspRestart<CR>")
+
+				opts.desc = "Set diagnostics to quickfix list"
+				keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 			end,
 		})
 
@@ -81,14 +84,6 @@ return {
 					},
 					completion = {
 						callSnippet = "Replace",
-					},
-					workspace = {
-						library = {
-
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
 					},
 				},
 			},
