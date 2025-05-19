@@ -6,6 +6,40 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
+		-- Add borders to floating windows
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+		vim.lsp.handlers["textDocument/signatureHelp"] =
+			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+		-- Configure error/warnings interface
+		vim.diagnostic.config({
+			virtual_text = true,
+			severity_sort = true,
+			float = {
+				style = "minimal",
+				border = "rounded",
+				header = "",
+				prefix = "",
+			},
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "E",
+					[vim.diagnostic.severity.WARN] = "W",
+					[vim.diagnostic.severity.HINT] = "H",
+					[vim.diagnostic.severity.INFO] = "I",
+				},
+			},
+		})
+
+		-- Add cmp_nvim_lsp capabilities settings to lspconfig
+		-- This should be executed before you configure any language server
+		local lspconfig_defaults = require("lspconfig").util.default_config
+		lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+			"force",
+			lspconfig_defaults.capabilities,
+			require("cmp_nvim_lsp").default_capabilities()
+		)
+
 		local keymap = vim.keymap
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -49,25 +83,18 @@ return {
 
 				opts.desc = "Set diagnostics to quickfix list"
 				keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+				opts.desc = "Rename a variable"
+				keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+
+				opts.desc = "format buffer"
+				keymap.set("n", "<space>bf", function()
+					vim.lsp.buf.format()
+				end, { silent = true })
+
+				opts.desc = "Code actions"
+				keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 			end,
-		})
-
-		-- Define sign icons for each severity
-		local signs = {
-			[vim.diagnostic.severity.ERROR] = "E",
-			[vim.diagnostic.severity.WARN] = "W",
-			[vim.diagnostic.severity.HINT] = "H",
-			[vim.diagnostic.severity.INFO] = "I",
-		}
-
-		-- Set the diagnostic config with all icons
-		vim.diagnostic.config({
-			signs = {
-				text = signs, -- Enable signs in the gutter
-			},
-			virtual_text = true, -- Specify Enable virtual text for diagnostics
-			underline = true, -- Specify Underline diagnostics
-			update_in_insert = false, -- Keep diagnostics active in insert mode
 		})
 
 		local lspconfig = require("lspconfig")

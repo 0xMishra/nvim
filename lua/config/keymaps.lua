@@ -36,7 +36,7 @@ vim.keymap.set("n", "<S-w>", ":bdelete<CR>", { silent = true })
 vim.keymap.set("n", "<space>bd", ":bdelete", { silent = false })
 
 -- Remove carriage return character
-vim.keymap.set("n", "<space>r", ":%s/\\r//g<CR>", { silent = true })
+vim.keymap.set("n", "<space>rr", ":%s/\\r//g<CR>", { silent = true })
 
 -- NETRW CONFIG
 vim.keymap.set("n", "<space>f", ":Explore<CR>", { silent = true })
@@ -92,8 +92,3 @@ vim.api.nvim_create_autocmd("TermEnter", {
 		vim.fn.winrestview({ topline = vim.fn.line("$") })
 	end,
 })
-
--- Formatting a buffer
-vim.keymap.set("n", "<space>bf", function()
-	vim.lsp.buf.format()
-end, { silent = true })

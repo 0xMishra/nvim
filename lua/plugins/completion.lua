@@ -13,6 +13,19 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 
+		local border_opts = {
+			border = {
+				{ "╭", "FloatBorder" },
+				{ "─", "FloatBorder" },
+				{ "╮", "FloatBorder" },
+				{ "│", "FloatBorder" },
+				{ "╯", "FloatBorder" },
+				{ "─", "FloatBorder" },
+				{ "╰", "FloatBorder" },
+				{ "│", "FloatBorder" },
+			},
+		}
+
 		local has_words_before = function()
 			unpack = unpack or table.unpack
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -22,6 +35,10 @@ return {
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
 		cmp.setup({
+			window = {
+				completion = cmp.config.window.bordered(border_opts),
+				documentation = cmp.config.window.bordered(border_opts),
+			},
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
