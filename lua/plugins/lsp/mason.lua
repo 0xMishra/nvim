@@ -31,9 +31,6 @@ return {
 				"gofumpt",
 				"goimports",
 			},
-
-			-- NOTE: mason BREAKING Change! Removed setup_handlers
-			-- moved lsp configuration settings back into lspconfig.lua file
 		})
 	end,
 }
