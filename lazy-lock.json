@@ -41,11 +41,11 @@
   },
   "lualine.nvim": {
     "branch": "master",
-    "commit": "ecfcfee812ef4fee1e86ae8f315c4a045f7da719"
+    "commit": "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af"
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "2cb844268288ccc06b8d0f368ef3c2b195e8278c"
+    "commit": "ce0e87c0be12e7c48296a7513e90430e3eac7f24"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
@@ -53,7 +53,7 @@
   },
   "mason.nvim": {
     "branch": "main",
-    "commit": "1aceba8bc158b5aaf90649077cad06744bc23ac4"
+    "commit": "9eaedb864cdadc29c6eb7d761a6c0d8aee26c91b"
   },
   "mini.comment": {
     "branch": "main",
@@ -85,6 +85,6 @@
   },
   "vim-tmux-navigator": {
     "branch": "master",
-    "commit": "64803fdd19a36211eba5e39f86c4cbceae8e1d06"
+    "commit": "0274dac508c62cd57efc8976c58646dbf62e2945"
   }
 }
