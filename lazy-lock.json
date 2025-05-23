@@ -1,7 +1,7 @@
 {
   "LuaSnip": {
     "branch": "master",
-    "commit": "c1851d5c519611dfc451b6582961b2602e0af89b"
+    "commit": "faf3c94a44508cec1b961406d36cc65113ff3b98"
   },
   "cmp-nvim-lsp": {
     "branch": "main",
@@ -13,7 +13,7 @@
   },
   "conform.nvim": {
     "branch": "master",
-    "commit": "a4bb5d6c4ae6f32ab13114e62e70669fa67745b9"
+    "commit": "6feb2f28f9a9385e401857b21eeac3c1b66dd628"
   },
   "friendly-snippets": {
     "branch": "main",
@@ -21,7 +21,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "9cd665f46ab7af2e49d140d328b8e72ea1cf511b"
+    "commit": "8b729e489f1475615dc6c9737da917b3bc163605"
   },
   "gruvbox-material": {
     "branch": "master",
@@ -45,7 +45,7 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "ce0e87c0be12e7c48296a7513e90430e3eac7f24"
+    "commit": "3856bbb0da214d1f2f3d5a2dd3fea26591f930f9"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
@@ -65,7 +65,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "ac1dfbe3b60e5e23a2cff90e3bd6a3bc88031a57"
+    "commit": "f610208989e9c03561f9f601db3133f6ae398fcd"
   },
   "nvim-treesitter": {
     "branch": "master",
@@ -85,6 +85,6 @@
   },
   "vim-tmux-navigator": {
     "branch": "master",
-    "commit": "0274dac508c62cd57efc8976c58646dbf62e2945"
+    "commit": "0ecda542c0bd3ea26444044c7f03e469a6bb0bff"
   }
 }
