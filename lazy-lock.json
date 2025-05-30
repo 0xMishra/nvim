@@ -21,7 +21,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "8b729e489f1475615dc6c9737da917b3bc163605"
+    "commit": "8bdaccdb897945a3c99c1ad8df94db0ddf5c8790"
   },
   "gruvbox-material": {
     "branch": "master",
@@ -85,6 +85,6 @@
   },
   "vim-tmux-navigator": {
     "branch": "master",
-    "commit": "ad4c04239d970981942d6a3e1195a770df09d0d7"
+    "commit": "a74836d404c295e799a6ba59794e37fe257509ec"
   }
 }
