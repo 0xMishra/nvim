@@ -1,7 +1,7 @@
 {
   "LuaSnip": {
     "branch": "master",
-    "commit": "fb525166ccc30296fb3457441eb979113de46b00"
+    "commit": "eda5be8f0ce9816278671f0b578cdbb8b762c701"
   },
   "cmp-nvim-lsp": {
     "branch": "main",
@@ -13,7 +13,7 @@
   },
   "conform.nvim": {
     "branch": "master",
-    "commit": "8132ec733eed3bf415b97b76797ca41b59f51d7d"
+    "commit": "973f3cb73887d510321653044791d7937c7ec0fa"
   },
   "friendly-snippets": {
     "branch": "main",
@@ -21,11 +21,11 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "88205953bd748322b49b26e1dfb0389932520dc9"
+    "commit": "6e3ee68bc9f65b21a21582a3d80e270c7e4f2992"
   },
   "gruvbox-material": {
     "branch": "master",
-    "commit": "f5f912fbc7cf2d45da6928b792d554f85c7aa89a"
+    "commit": "66cfeb7050e081a746a62dd0400446433e802368"
   },
   "harpoon": {
     "branch": "harpoon2",
@@ -45,11 +45,11 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "f54e3c11fc9ebfcfc27e696182b0295b071d0811"
+    "commit": "73e0143385d8a2185944b42ed44d728b94ee19a3"
   },
   "mason-tool-installer.nvim": {
     "branch": "main",
-    "commit": "93a9ff9b34c91c0cb0f7de8d5f7e4abce51d8903"
+    "commit": "517ef5994ef9d6b738322664d5fdd948f0fdeb46"
   },
   "mason.nvim": {
     "branch": "main",
@@ -65,7 +65,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "314b35335cc84bc2a085c84c69da955ba22da163"
+    "commit": "d8f03bfd5b54b10352276a0ed1f2ffe9c2e0676f"
   },
   "nvim-treesitter": {
     "branch": "master",
