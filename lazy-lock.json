@@ -65,7 +65,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "dbfd8da6206b4ab0e2fe9b72a538f82e2b410102"
+    "commit": "d3934000788ab0a8f98ed58bc69e4b73ad26b110"
   },
   "nvim-treesitter": {
     "branch": "master",
