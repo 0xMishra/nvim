@@ -5,6 +5,7 @@ vim.cmd([[
   hi! link netrwMarkFile Search
   let g:netrw_localcopydircmd = 'cp -r'
   let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+  let g:netrw_list_hide = '^\.\./$,^\./$'
 
   function! NetrwRemoveRecursive()
     if &filetype ==# 'netrw'

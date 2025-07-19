@@ -34,7 +34,7 @@ local options = {
 
 	breakindent = true, -- wrap lines with indent
 	relativenumber = true, -- set relative numbered lines
-	numberwidth = 4, -- set number column width to 2 {default 4}
+	numberwidth = 3, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = true, -- display lines as one long line
 	scrolloff = 8, -- Makes sure there are always eight lines of context
