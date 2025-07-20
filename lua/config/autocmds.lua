@@ -112,12 +112,11 @@ vim.api.nvim_create_autocmd("FileType", {
 -- resize neovim split when terminal is resized
 vim.api.nvim_command("autocmd VimResized * wincmd =")
 
+-- hide ../ and ./ from netrw
 -- Save netrw buffer number
-
 local netrw_bufnr = nil
 
 -- Detect netrw buffer
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "netrw",
 	callback = function(args)
@@ -133,7 +132,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		local name = vim.api.nvim_buf_get_name(bufnr)
 
 		-- If we're not in netrw, and a file is loaded, delete old netrw buffer
-
 		if ft ~= "netrw" and name ~= "" and vim.fn.filereadable(name) == 1 then
 			if netrw_bufnr and vim.api.nvim_buf_is_valid(netrw_bufnr) then
 				vim.api.nvim_buf_delete(netrw_bufnr, { force = true })
