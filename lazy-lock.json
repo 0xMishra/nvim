@@ -1,15 +1,7 @@
 {
-  "LuaSnip": {
-    "branch": "master",
-    "commit": "66b5c2707e624dcd2cd3605676c64a2efe47e9d1"
-  },
-  "cmp-nvim-lsp": {
+  "blink.cmp": {
     "branch": "main",
-    "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b"
-  },
-  "cmp_luasnip": {
-    "branch": "master",
-    "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90"
+    "commit": "586ee87534f5bf65f1c8dea2d1da2a57e8cddd36"
   },
   "conform.nvim": {
     "branch": "master",
@@ -21,7 +13,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "0cb5a7753d3c4b8e9cfdc9d88d9110cb8d4b1544"
+    "commit": "1fcaddcc427ff5802b6602f46de37a5352d0f9e0"
   },
   "gruvbox-material": {
     "branch": "master",
@@ -57,11 +49,7 @@
   },
   "mini.comment": {
     "branch": "main",
-    "commit": "51c173dffa17dc14c81169deaeea430bd394ab51"
-  },
-  "nvim-cmp": {
-    "branch": "main",
-    "commit": "b5311ab3ed9c846b585c0c15b7559be131ec4be9"
+    "commit": "871746069a28e35d04a66f88bc0e6831779ccc40"
   },
   "nvim-lspconfig": {
     "branch": "master",
@@ -78,13 +66,5 @@
   "telescope.nvim": {
     "branch": "0.1.x",
     "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"
-  },
-  "vim-fugitive": {
-    "branch": "master",
-    "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4"
-  },
-  "vim-tmux-navigator": {
-    "branch": "master",
-    "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a"
   }
 }

@@ -1,7 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+		"Saghen/blink.cmp",
 	},
 	event = { "BufReadPre", "BufNewFile" },
 
@@ -30,15 +30,6 @@ return {
 				},
 			},
 		})
-
-		-- Add cmp_nvim_lsp capabilities settings to lspconfig
-		-- This should be executed before you configure any language server
-		local lspconfig_defaults = require("lspconfig").util.default_config
-		lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-			"force",
-			lspconfig_defaults.capabilities,
-			require("cmp_nvim_lsp").default_capabilities()
-		)
 
 		local keymap = vim.keymap
 
@@ -98,8 +89,17 @@ return {
 		})
 
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local blink_cmp = require("blink.cmp")
+		local capabilities = {
+			textDocument = {
+				foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly = true,
+				},
+			},
+		}
+
+		capabilities = blink_cmp.get_lsp_capabilities(capabilities)
 
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
