@@ -12,7 +12,14 @@ return {
 				previewer = false,
 				disable_devicons = true,
 				-- hidden = true,
-				prompt_prefix = "   ",
+				prompt_prefix = " $ ",
+				-- other defaults
+				selection_caret = "> ",
+				entry_prefix = "  ",
+				multi_icon = "",
+				-- disable icons
+				dynamic_preview_title = true,
+
 				file_ignore_patterns = { "node_modules", "package-lock.json" },
 				initial_mode = "insert",
 				select_strategy = "reset",
@@ -153,7 +160,7 @@ return {
 
 		vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>se", require("telescope.builtin").git_files, { desc = "[S]earch Git Fil[E]s" })
-		vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
+		vim.keymap.set("n", "<space>sk", ":Telescope keymaps<CR>", { silent = true })
 		vim.keymap.set(
 			"n",
 			"<leader>sw",

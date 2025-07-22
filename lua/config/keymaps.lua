@@ -41,11 +41,10 @@ vim.keymap.set("n", "<space>rr", ":%s/\\r//g<CR>", { silent = true })
 -- NETRW CONFIG
 vim.keymap.set("n", "<space>f", ":Explore<CR>", { silent = true })
 
--- Open vim fugitive
+-- Open Git
 vim.keymap.set("n", "<space>g", ":G<CR>", { silent = true })
 
 -- Shortcut for opening this config file
-vim.keymap.set("n", "<space>sk", ":Telescope keymaps<CR>", { silent = true })
 vim.keymap.set("n", "<space>M", ":Mason<CR>", { silent = true })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
