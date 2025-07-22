@@ -28,5 +28,21 @@ require("lazy").setup({
 
 	-- automatically check for plugin updates
 	checker = { enabled = false },
-	icons = {},
+	ui = {
+		icons = {
+			cmd = "", -- command
+			config = "", -- config loaded
+			event = "", -- event name
+			ft = "", -- filetype
+			init = "", -- init function
+			keys = "", -- keymap
+			plugin = "", -- plugin
+			runtime = "", -- runtime path
+			require = "", -- require
+			source = "", -- source
+			start = "", -- start plugin
+			task = "", -- task
+			lazy = "", -- lazy loaded
+		},
+	},
 })
