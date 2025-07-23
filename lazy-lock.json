@@ -7,10 +7,6 @@
     "branch": "master",
     "commit": "973f3cb73887d510321653044791d7937c7ec0fa"
   },
-  "friendly-snippets": {
-    "branch": "main",
-    "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175"
-  },
   "gitsigns.nvim": {
     "branch": "main",
     "commit": "1fcaddcc427ff5802b6602f46de37a5352d0f9e0"
