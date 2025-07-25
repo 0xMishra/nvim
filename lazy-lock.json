@@ -1,7 +1,7 @@
 {
   "blink.cmp": {
     "branch": "main",
-    "commit": "586ee87534f5bf65f1c8dea2d1da2a57e8cddd36"
+    "commit": "bae4bae0eedd1fa55f34b685862e94a222d5c6f8"
   },
   "conform.nvim": {
     "branch": "master",
@@ -9,7 +9,7 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "1fcaddcc427ff5802b6602f46de37a5352d0f9e0"
+    "commit": "b01433169be710d6c69f7b4ee264d9670698b831"
   },
   "gruvbox-material": {
     "branch": "master",
@@ -41,7 +41,7 @@
   },
   "mason.nvim": {
     "branch": "main",
-    "commit": "8024d64e1330b86044fed4c8494ef3dcd483a67c"
+    "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f"
   },
   "mini.comment": {
     "branch": "main",
@@ -49,7 +49,7 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "f47cd681d7cb6048876a2e908b6d8ba1e530d152"
+    "commit": "4d3b3bb8815fbe37bcaf3dbdb12a22382bc11ebe"
   },
   "nvim-treesitter": {
     "branch": "master",
