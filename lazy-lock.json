@@ -43,10 +43,6 @@
     "branch": "main",
     "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f"
   },
-  "mini.comment": {
-    "branch": "main",
-    "commit": "871746069a28e35d04a66f88bc0e6831779ccc40"
-  },
   "nvim-lspconfig": {
     "branch": "master",
     "commit": "4d3b3bb8815fbe37bcaf3dbdb12a22382bc11ebe"
