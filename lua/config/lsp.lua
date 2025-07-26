@@ -20,6 +20,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf, silent = true }
 		local keymap = vim.keymap
 
+		opts.desc = "Go to definition"
+		keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+
 		opts.desc = "Show buffer diagnostics"
 		keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
