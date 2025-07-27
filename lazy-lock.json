@@ -15,10 +15,6 @@
     "branch": "master",
     "commit": "66cfeb7050e081a746a62dd0400446433e802368"
   },
-  "harpoon": {
-    "branch": "harpoon2",
-    "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7"
-  },
   "indent-blankline.nvim": {
     "branch": "master",
     "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba"
@@ -26,10 +22,6 @@
   "lazy.nvim": {
     "branch": "main",
     "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a"
-  },
-  "lualine.nvim": {
-    "branch": "master",
-    "commit": "a94fc68960665e54408fe37dcf573193c4ce82c9"
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
@@ -43,16 +35,8 @@
     "branch": "main",
     "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f"
   },
-  "nvim-treesitter": {
-    "branch": "master",
-    "commit": "42fc28ba918343ebfd5565147a42a26580579482"
-  },
-  "plenary.nvim": {
-    "branch": "master",
-    "commit": "857c5ac632080dba10aae49dba902ce3abf91b35"
-  },
-  "telescope.nvim": {
-    "branch": "0.1.x",
-    "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"
+  "mini.pick": {
+    "branch": "main",
+    "commit": "fa1e449e1080bf7aa9b2890ee186d23b1b4e1287"
   }
 }

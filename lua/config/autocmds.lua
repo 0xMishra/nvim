@@ -70,15 +70,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		-- change the background color of floating windows and borders.
-		vim.cmd("highlight NormalFloat guibg=none guifg=none")
-		vim.cmd("highlight FloatBorder guifg=" .. colors.fg .. " guibg=none")
-		vim.cmd("highlight NormalNC guibg=none guifg=none")
-	end,
-})
-
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
 

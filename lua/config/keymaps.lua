@@ -6,6 +6,11 @@ end
 
 vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
 
+-- Next buffer
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" }, { expr = true, silent = true })
+
+-- Previous buffer
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" }, { expr = true, silent = true })
 -- keymap to clear all the buffers
 vim.keymap.set("n", "<Del>", ":bufdo bd | Explore<CR>", { noremap = true, silent = true })
 
@@ -91,3 +96,6 @@ vim.api.nvim_create_autocmd("TermEnter", {
 		vim.fn.winrestview({ topline = vim.fn.line("$") })
 	end,
 })
+
+-- hide statusline
+vim.cmd(":hi statusline guibg=NONE")
