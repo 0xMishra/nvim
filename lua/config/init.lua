@@ -1,4 +1,5 @@
 -- core configurations
+require("config.statusline")
 require("config.lazy")
 require("config.options")
 require("config.netrw")
