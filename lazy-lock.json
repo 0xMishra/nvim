@@ -23,17 +23,9 @@
     "branch": "main",
     "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a"
   },
-  "mason-lspconfig.nvim": {
-    "branch": "main",
-    "commit": "bb3a17efc797c34c054463174e5522442576ebd8"
-  },
-  "mason-tool-installer.nvim": {
-    "branch": "main",
-    "commit": "517ef5994ef9d6b738322664d5fdd948f0fdeb46"
-  },
   "mason.nvim": {
     "branch": "main",
-    "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f"
+    "commit": "3671ab0d40aa5bd24b1686562bd0a23391ecf76a"
   },
   "mini.pick": {
     "branch": "main",

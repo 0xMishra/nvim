@@ -8,11 +8,6 @@ vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap =
 
 vim.keymap.set("n", "<leader>lsp", ":LspRestart<CR>", { desc = "Next buffer" })
 
--- Next buffer
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" }, { expr = true, silent = true })
-
--- Previous buffer
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" }, { expr = true, silent = true })
 -- keymap to clear all the buffers
 vim.keymap.set("n", "<Del>", ":bufdo bd | Explore<CR>", { noremap = true, silent = true })
 
