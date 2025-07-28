@@ -14,6 +14,10 @@ return {
 				prompt_caret = "_ ",
 				prompt_prefix = "> ",
 			},
+			mappings = {
+				-- save to quickfixlist
+				choose_marked = "<C-q>",
+			},
 		})
 
 		-- Set keymaps

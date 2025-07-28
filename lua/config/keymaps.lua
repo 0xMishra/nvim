@@ -6,6 +6,8 @@ end
 
 vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>lsp", ":LspRestart<CR>", { desc = "Next buffer" })
+
 -- Next buffer
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" }, { expr = true, silent = true })
 
