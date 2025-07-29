@@ -21,4 +21,5 @@ Requirements:
   - [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [mini.pick](https://github.com/echasnovski/mini.pick) pickers.
   - [build-essential](https://phoenixnap.com/kb/install-gcc-ubuntu) for [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) plugin
   - [nodejs and NPM](https://nodejs.org/en) for typescript server and prettierd
+  - [Golang](https://go.dev/doc/install) for go server and tools
   - [stylua](https://github.com/JohnnyMorganz/StyLua) for formatting lua files. Can be installed easily with Rust's Cargo package manager

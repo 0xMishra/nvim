@@ -1,10 +1,5 @@
 local api = vim.api
 
-local colors = {
-	fg = "#f5deb3",
-	bg = "#252829",
-}
-
 -- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
@@ -57,7 +52,6 @@ api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
 })
 api.nvim_create_autocmd(
 	{ "InsertEnter", "WinLeave" },
-
 	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
@@ -72,27 +66,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-
 	group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
 	pattern = {
-		"PlenaryTestPopup",
 		"help",
-		"lspinfo",
-		"fugitive",
-		"git",
-
 		"man",
 		"notify",
 		"qf",
 		"spectre_panel",
 		"startuptime",
-
-		"tsplayground",
-
-		"neotest-output",
 		"checkhealth",
-		"neotest-summary",
-		"neotest-output-panel",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
@@ -103,31 +85,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- resize neovim split when terminal is resized
 vim.api.nvim_command("autocmd VimResized * wincmd =")
 
--- hide ../ and ./ from netrw
--- Save netrw buffer number
-local netrw_bufnr = nil
-
--- Detect netrw buffer
+-- resize the quickfix list
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "netrw",
-	callback = function(args)
-		netrw_bufnr = args.buf
-	end,
-})
-
--- When a real file is opened (i.e. not a directory), delete netrw buffer
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function(args)
-		local bufnr = args.buf
-		local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-		local name = vim.api.nvim_buf_get_name(bufnr)
-
-		-- If we're not in netrw, and a file is loaded, delete old netrw buffer
-		if ft ~= "netrw" and name ~= "" and vim.fn.filereadable(name) == 1 then
-			if netrw_bufnr and vim.api.nvim_buf_is_valid(netrw_bufnr) then
-				vim.api.nvim_buf_delete(netrw_bufnr, { force = true })
-				netrw_bufnr = nil
-			end
-		end
+	pattern = "qf",
+	callback = function()
+		vim.cmd("resize 15")
 	end,
 })

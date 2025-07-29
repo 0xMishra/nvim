@@ -35,7 +35,33 @@ vim.keymap.set("n", "<Leader>ai", ":AutoIndent<CR>", { silent = true })
 
 -- BUFFER KEYMAPS
 vim.keymap.set("n", "<S-w>", ":bdelete<CR>", { silent = true })
-vim.keymap.set("n", "<space>bd", ":bdelete", { silent = false })
+vim.keymap.set("n", "<space>bd", ":bdelete ", { silent = false })
+vim.keymap.set("n", "<leader>bl", function()
+	local output = vim.api.nvim_exec2("buffers", { output = true }).output
+	local items = {}
+
+	for line in vim.gsplit(output, "\n", true) do
+		-- Match format like:
+		-- "  3 %a   \"init.lua\"              line 1"
+		local buf_id, file = line:match('^%s*(%d+)%s+[%p%a]+%s+"([^"]+)"')
+		if buf_id and file then
+			table.insert(items, {
+				text = string.format("[%s]", buf_id),
+				bufnr = tonumber(buf_id),
+				lnum = 1,
+				col = 1,
+			})
+		end
+	end
+
+	if #items == 0 then
+		vim.notify("No named buffers found", vim.log.levels.INFO)
+		return
+	end
+
+	vim.fn.setqflist(items, "r")
+	vim.cmd("copen")
+end, { desc = "Show buffer list in quickfix with IDs" })
 
 -- Remove carriage return character
 vim.keymap.set("n", "<space>rr", ":%s/\\r//g<CR>", { silent = true })
@@ -93,3 +119,9 @@ vim.api.nvim_create_autocmd("TermEnter", {
 
 -- hide statusline
 vim.cmd(":hi statusline guibg=NONE")
+
+-- keymaps similar to vim-tmux-navigator plugin
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })

@@ -12,7 +12,6 @@ return {
 				run_govulncheck = true,
 				test = true,
 				tidy = true,
-
 				upgrade_dependency = true,
 				vendor = true,
 			},

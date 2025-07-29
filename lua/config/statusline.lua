@@ -22,7 +22,7 @@ function DiagnosticsStatus()
 	return table.concat(status, " ")
 end
 
-vim.o.statusline = "%C %f %m %r %= " .. "%{v:lua.DiagnosticsStatus()}" .. " %y %C"
+vim.o.statusline = "%C%C %f %m %r %= " .. "%{v:lua.DiagnosticsStatus()}" .. " %y %C%C"
 
 vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
 	callback = function()

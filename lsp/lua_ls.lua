@@ -17,7 +17,6 @@ return {
 				disable = { "missing-fields" },
 				globals = {
 					"vim",
-					"Snacks",
 				},
 			},
 			hint = {
@@ -26,7 +25,6 @@ return {
 				paramType = true,
 				paramName = "Disable",
 				semicolon = "Disable",
-
 				arrayIndex = "Disable",
 			},
 		},
