@@ -1,9 +1,19 @@
-vim.pack.add({
-	"https://github.com/sainnhe/gruvbox-material",
-	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/lukas-reineke/indent-blankline.nvim",
-	"https://github.com/williamboman/mason.nvim",
-	"https://github.com/echasnovski/mini.pick",
-	"https://github.com/saghen/blink.cmp",
-})
+local base_url = "https://github.com/"
+
+local repo_names = {
+	"sainnhe/gruvbox-material",
+	"stevearc/conform.nvim",
+	"lewis6991/gitsigns.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	"williamboman/mason.nvim",
+	"echasnovski/mini.pick",
+	"saghen/blink.cmp",
+}
+
+local plugins = {}
+
+for i, repo in ipairs(repo_names) do
+	plugins[i] = base_url .. repo
+end
+
+vim.pack.add(plugins)
