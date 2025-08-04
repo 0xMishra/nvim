@@ -75,6 +75,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"spectre_panel",
 		"startuptime",
 		"checkhealth",
+		"nvim-pack",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
