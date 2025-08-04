@@ -1,0 +1,7 @@
+require("plugins.colorscheme")
+require("plugins.formatting")
+require("plugins.gitsigns")
+require("plugins.indentation")
+require("plugins.mason")
+require("plugins.pick")
+require("plugins.blink")

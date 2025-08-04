@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local options = {
 
 	guicursor = "", -- shape of cursor in normal mode

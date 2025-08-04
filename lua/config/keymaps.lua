@@ -6,8 +6,6 @@ end
 
 vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>lsp", ":LspRestart<CR>", { desc = "Next buffer" })
-
 -- keymap to clear all the buffers
 vim.keymap.set("n", "<Del>", ":bufdo bd | Explore<CR>", { noremap = true, silent = true })
 

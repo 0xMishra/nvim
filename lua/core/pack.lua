@@ -1,0 +1,9 @@
+vim.pack.add({
+	"https://github.com/sainnhe/gruvbox-material",
+	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	"https://github.com/williamboman/mason.nvim",
+	"https://github.com/echasnovski/mini.pick",
+	"https://github.com/saghen/blink.cmp",
+})

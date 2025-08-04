@@ -23,9 +23,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		opts.desc = "Go to definition"
 		keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
-		opts.desc = "Show line diagnostics"
-		keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
 		opts.desc = "Set diagnostics to quickfix list"
 		keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
@@ -112,7 +109,6 @@ local function lsp_info()
 	for i, client in ipairs(clients) do
 		print(string.format(" Client %d: %s", i, client.name))
 		print("  ID: " .. client.id)
-
 		print("  Root dir: " .. (client.config.root_dir or "Not set"))
 		print("  Command: " .. table.concat(client.config.cmd or {}, " "))
 		print("  Filetypes: " .. table.concat(client.config.filetypes or {}, ", "))
@@ -181,12 +177,9 @@ local function lsp_info()
 
 		print("   Errors: " .. counts.ERROR)
 		print("   Warnings: " .. counts.WARN)
-
 		print("   Info: " .. counts.INFO)
-
 		print("   Hints: " .. counts.HINT)
-
-		print("  Total: " .. #diagnostics)
+		print("   Total: " .. #diagnostics)
 	else
 		print(" No diagnostics")
 	end
@@ -198,3 +191,5 @@ end
 
 -- Create command
 vim.api.nvim_create_user_command("LspInfo", lsp_info, { desc = "Show comprehensive LSP information" })
+
+vim.keymap.set("n", "<leader>lsp", ":LspRestart<CR>", { desc = "Restart LSP server" })
