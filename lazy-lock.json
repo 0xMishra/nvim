@@ -9,11 +9,11 @@
   },
   "gitsigns.nvim": {
     "branch": "main",
-    "commit": "b01433169be710d6c69f7b4ee264d9670698b831"
+    "commit": "8270378ab83540b03d09c0194ba3e208f9d0cb72"
   },
   "gruvbox-material": {
     "branch": "master",
-    "commit": "66cfeb7050e081a746a62dd0400446433e802368"
+    "commit": "d080710b58e605b45db0b0e4288205ca6f7587f0"
   },
   "indent-blankline.nvim": {
     "branch": "master",
@@ -25,7 +25,7 @@
   },
   "mason.nvim": {
     "branch": "main",
-    "commit": "3671ab0d40aa5bd24b1686562bd0a23391ecf76a"
+    "commit": "9e25c98d4826998460926f8c5c2284848d80ae89"
   },
   "mini.pick": {
     "branch": "main",

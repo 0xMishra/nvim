@@ -49,6 +49,7 @@ local options = {
 	confirm = true, -- confirm to save changes before exiting modified buffer
 	fillchars = { eob = " " }, -- change the character at the end of buffer
 	colorcolumn = "120",
+	winborder = "rounded",
 }
 
 for k, v in pairs(options) do
