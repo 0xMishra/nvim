@@ -93,3 +93,17 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("resize 15")
 	end,
 })
+
+-- for autocompletion menu popup
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		vim.lsp.completion.get()
+	end,
+})
+
+vim.keymap.set("i", "<BS>", function()
+	-- First, perform backspace like normal
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<BS>", true, false, true), "n", false)
+	-- Then, trigger completion popup
+	vim.lsp.completion.get()
+end, { silent = true, noremap = true })

@@ -7,7 +7,6 @@ local repo_names = {
 	"lukas-reineke/indent-blankline.nvim",
 	"williamboman/mason.nvim",
 	"echasnovski/mini.pick",
-	"saghen/blink.cmp",
 }
 
 local plugins = {}

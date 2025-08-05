@@ -16,6 +16,53 @@ vim.lsp.enable({
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
+			vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+
+			-- Show completion menu
+			vim.keymap.set("i", "<C-e>", function()
+				vim.lsp.completion.get() -- Show completion menu
+			end, { buffer = ev.buf, desc = "Show completion" })
+
+			-- Select next completion item
+			vim.keymap.set("i", "<Tab>", function()
+				if vim.fn.pumvisible() == 1 then
+					return "<C-n>"
+				else
+					return "<Tab>"
+				end
+			end, { expr = true, buffer = ev.buf, desc = "Next completion" })
+
+			-- Select previous completion item
+			vim.keymap.set("i", "<S-Tab>", function()
+				if vim.fn.pumvisible() == 1 then
+					return "<C-p>"
+				else
+					return "<S-Tab>"
+				end
+			end, { expr = true, buffer = ev.buf, desc = "Prev completion" })
+
+			-- Accept selection ("<CR>")
+			vim.keymap.set("i", "<CR>", function()
+				if vim.fn.pumvisible() == 1 then
+					return "<C-y>"
+				else
+					return "<CR>"
+				end
+			end, { expr = true, buffer = ev.buf, desc = "Accept completion" })
+
+			-- Cancel completion ("<C-c>")
+			vim.keymap.set("i", "<C-c>", function()
+				if vim.fn.pumvisible() == 1 then
+					return "<C-e>"
+				else
+					return "<C-c>"
+				end
+			end, { expr = true, buffer = ev.buf, desc = "Cancel completion" })
+		end
+
 		-- Buffer local mappings.
 		local opts = { buffer = ev.buf, silent = true }
 		local keymap = vim.keymap
