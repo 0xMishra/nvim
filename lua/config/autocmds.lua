@@ -76,6 +76,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"startuptime",
 		"checkhealth",
 		"nvim-pack",
+		"vim",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false

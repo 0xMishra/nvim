@@ -161,8 +161,7 @@ local function lsp_info()
 		print("  Filetypes: " .. table.concat(client.config.filetypes or {}, ", "))
 
 		-- Server status
-
-		if client.is_stopped() then
+		if client.is_stopped then
 			print("  Status:  Stopped")
 		else
 			print("  Status:  Running")
@@ -242,7 +241,6 @@ vim.api.nvim_create_user_command("LspInfo", lsp_info, { desc = "Show comprehensi
 local function stop_lsp(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })
-
 	for _, client in ipairs(clients) do
 		vim.lsp.stop_client(client.id)
 	end
