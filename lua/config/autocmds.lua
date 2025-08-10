@@ -96,7 +96,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- for autocompletion menu popup
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd("InsertCharPre", {
 	callback = function()
 		vim.lsp.completion.get()
 	end,
