@@ -100,24 +100,7 @@ vim.diagnostic.config({
 	},
 })
 
--- Lsp commands
-local function restart_lsp(bufnr)
-	bufnr = bufnr or vim.api.nvim_get_current_buf()
-	local clients = vim.lsp.get_clients({ bufnr = bufnr })
-
-	for _, client in ipairs(clients) do
-		vim.lsp.stop_client(client.id)
-	end
-
-	vim.defer_fn(function()
-		vim.cmd("edit")
-	end, 100)
-end
-
-vim.api.nvim_create_user_command("LspRestart", function()
-	restart_lsp()
-end, {})
-
+-- LSP server info
 local function lsp_info()
 	local bufnr = vim.api.nvim_get_current_buf()
 
@@ -159,13 +142,6 @@ local function lsp_info()
 		print("  Root dir: " .. (client.config.root_dir or "Not set"))
 		print("  Command: " .. table.concat(client.config.cmd or {}, " "))
 		print("  Filetypes: " .. table.concat(client.config.filetypes or {}, ", "))
-
-		-- Server status
-		if client.is_stopped then
-			print("  Status:  Stopped")
-		else
-			print("  Status:  Running")
-		end
 
 		-- Workspace folders
 		if client.workspace_folders and #client.workspace_folders > 0 then
@@ -231,13 +207,10 @@ local function lsp_info()
 	end
 
 	print("")
-	print("Use :LspLog to view detailed logs")
-	print("Use :LspCapabilities for full capability list")
 end
-
--- Create command
 vim.api.nvim_create_user_command("LspInfo", lsp_info, { desc = "Show comprehensive LSP information" })
 
+-- Stop the LSP server
 local function stop_lsp(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })
@@ -245,9 +218,6 @@ local function stop_lsp(bufnr)
 		vim.lsp.stop_client(client.id)
 	end
 end
-
 vim.api.nvim_create_user_command("LspStop", function()
 	stop_lsp()
 end, { desc = "Stop attached LSP clients" })
-
-vim.keymap.set("n", "<leader>lsp", ":LspRestart<CR>", { desc = "Restart LSP server" })

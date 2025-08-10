@@ -6,6 +6,9 @@ end
 
 vim.api.nvim_set_keymap("n", "~", ":lua OpenCurrentDirectory()<CR>", { noremap = true, silent = true })
 
+-- to see lists of marked files
+vim.keymap.set("n", "<leader>ma", ":marks<CR>", { silent = true })
+
 -- keymap to clear all the buffers
 vim.keymap.set("n", "<Del>", ":bufdo bd | Explore<CR>", { noremap = true, silent = true })
 
