@@ -19,7 +19,7 @@ Requirements:
 - Make sure to review the readmes of the plugins if you are experiencing errors. In particular:
   - [xclip](https://linuxconfig.org/how-to-use-xclip-on-linux) is required for the clipboard to work properly.
   - [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [mini.pick](https://github.com/echasnovski/mini.pick) pickers.
-  - [build-essential](https://phoenixnap.com/kb/install-gcc-ubuntu) for [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) plugin
+  - [build-essential](https://phoenixnap.com/kb/install-gcc-ubuntu) like gcc and stuff
   - [nodejs and NPM](https://nodejs.org/en) for typescript server and prettierd
-  - [Golang](https://go.dev/doc/install) for go server and tools
+  - [Golang](https://go.dev/doc/install) for golang server and formatting/linting tools
   - [stylua](https://github.com/JohnnyMorganz/StyLua) for formatting lua files. Can be installed easily with Rust's Cargo package manager
