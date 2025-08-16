@@ -1,4 +1,5 @@
 vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_float_style = "none"
 vim.cmd.colorscheme("gruvbox-material")
 
 -- To make neovim transparent

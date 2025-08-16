@@ -51,5 +51,3 @@ if mr.refresh then
 else
 	ensure_installed()
 end
-
-vim.keymap.set("n", "<leader>M", ":Mason<CR>", { desc = "Mason", silent = true })
