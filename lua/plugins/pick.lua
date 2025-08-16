@@ -3,7 +3,10 @@ local pick = require("mini.pick")
 pick.setup({
 	window = {
 		border = "shadow",
-		config = nil,
+		config = {
+			width = 100,
+			height = 20,
+		},
 		prompt_caret = "_ ",
 		prompt_prefix = "> ",
 	},
